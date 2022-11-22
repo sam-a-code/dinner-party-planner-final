@@ -1,7 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import '../App.css'
 import { useState, useEffect } from "react";
-
+import { Routes, Route} from "react-router-dom"
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,7 +10,7 @@ function App() {
       .then((r) => r.json())
       .then((data) => setCount(data.count));
   }, []);
-  
+
   return (
     <div className="App">
       <h1>Page Count: {count}</h1>
