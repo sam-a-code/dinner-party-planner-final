@@ -1,0 +1,2 @@
+class VibesController < ApplicationController
+end

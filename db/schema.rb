@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_221524) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_165815) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,39 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_221524) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dinner_parties_on_user_id"
+  end
+
+  create_table "drink_menus", force: :cascade do |t|
+    t.bigint "dinner_party_id", null: false
+    t.string "recipe_name"
+    t.string "recipe_link"
+    t.string "ingredients"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dinner_party_id"], name: "index_drink_menus_on_dinner_party_id"
+  end
+
+  create_table "food_menus", force: :cascade do |t|
+    t.bigint "dinner_party_id", null: false
+    t.string "recipe_name"
+    t.string "recipe_link"
+    t.string "ingredients"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dinner_party_id"], name: "index_food_menus_on_dinner_party_id"
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.bigint "dinner_party_id", null: false
+    t.string "name"
+    t.string "contact"
+    t.integer "plus_ones"
+    t.string "dietary_restrictions"
+    t.string "assigned_dishes"
+    t.string "rsvp_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dinner_party_id"], name: "index_guests_on_dinner_party_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -34,5 +67,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_221524) do
     t.string "propic_url"
   end
 
+  create_table "vibes", force: :cascade do |t|
+    t.bigint "dinner_party_id", null: false
+    t.string "theme"
+    t.string "decor"
+    t.string "spotify_playlist"
+    t.string "games"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dinner_party_id"], name: "index_vibes_on_dinner_party_id"
+  end
+
   add_foreign_key "dinner_parties", "users"
+  add_foreign_key "drink_menus", "dinner_parties"
+  add_foreign_key "food_menus", "dinner_parties"
+  add_foreign_key "guests", "dinner_parties"
+  add_foreign_key "vibes", "dinner_parties"
 end
