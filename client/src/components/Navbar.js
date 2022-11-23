@@ -1,8 +1,17 @@
-function Navbar({ onLogout }) {
+import {Link} from 'react-router-dom'
+import Signup from './Signup';
+import Login from './Login';
+
+function Navbar({  }) {
     function handleLogout() {
       fetch("/logout", {
         method: "DELETE",
-      }).then(() => onLogout());
+      })
+      .then(res => {
+        if(res.ok) {
+          console.log("delete")
+        }
+      })
     }
 
     return (

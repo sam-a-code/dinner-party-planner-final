@@ -6,7 +6,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-
+# custom auth routes
+# save user info to sessions
   post "/login", to: "sessions#create"
+  # delete user info from sessions
+  delete "/logout", to: "sessions#destroy"
+  # route our app runs before it allows access to pages
+  get '/authorized_user', to: "users#show"
+
+
 
 end

@@ -3,15 +3,33 @@ import { useState, useEffect } from "react";
 import { Routes, Route} from "react-router-dom"
 import Signup from './Signup';
 import Home from './Home'
-
-//add handle submit function
+import Login from './Login'
+import Navbar from './Navbar'
 
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(false)
+
+  useEffect(() => {
+    fetch('/authorized_user')
+    .then(res => {
+      if(res.ok){
+        res.json().then(user => {
+          updateUser(user)
+        })
+      }
+    })
+  }, [])
+
+  const updateUser = (user) => setCurrentUser(user)
+
+
   return (
-    <div className="App">
-      <Signup />
+    <div>
+      <Navbar />
+      {!currentUser ? <><Login errors={'please log in'} updateUser={updateUser}/> or <Signup /> </> :
       <Home />
+  }
     </div>
   );
 }

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom'
 
 
-function Login({  }) {
+function Login({ updateUser }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState("")
+
     const navigate = useNavigate()
 
 
@@ -14,7 +16,7 @@ function Login({  }) {
         username: username,
         password: password
       }
-    }
+
 
     fetch(`/login`,{
       method:'POST',
@@ -24,15 +26,17 @@ function Login({  }) {
     .then(res => {
         if(res.ok){
             res.json().then(user => {
-                navigate(`/users/${user.id}`)
+              updateUser(user)
+                navigate(`/`)
             })
         }else {
-            res.json().then(json => setErrors(Object.entries(json.errors)))
+            res.json().then(data => setErrors(data.errors))
         }
-    })
-
+    }, [])
+  }
 
     return (
+      <>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -50,6 +54,8 @@ function Login({  }) {
          <br></br>
         <button type="submit">Login</button>
       </form>
+      {errors ? <div>{errors}</div> : null}
+      </>
     );
   }
 
