@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { useHistory } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function Signup () {
     const [username, setUsername] = useState("");
@@ -8,7 +8,7 @@ function Signup () {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [errors, setErrors] = useState([]);
-    // const history = useHistory();
+    const navigate = useNavigate();
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -19,14 +19,14 @@ function Signup () {
             first_name: firstName,
             last_name: lastName,
         }
-        fetch("/users", {
+        fetch(`/users`, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(user),
         }).then((res) => {
             if (res.ok) {
                 res.json().then((user) => {
-                    // history.push(`/users/${user.id}`)
+                    navigate(`/users/${user.id}`)
                 })
             } else {
                 res.json().then(json => setErrors(Object.entries(json.errors)))
@@ -36,7 +36,7 @@ function Signup () {
 
     return (
     <>
-    <h1>Sign up + create account</h1>
+    <h1>Create account</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -73,7 +73,7 @@ function Signup () {
           onChange={(e) => setLastName(e.target.value)}
         />
          <br></br>
-        <button type="submit">Login</button>
+        <button type="submit">Create account</button>
       </form>
       </>
     );
