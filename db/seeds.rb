@@ -1,9 +1,10 @@
-User.destroy_all
-DinnerParty.destroy_all
 DrinkMenu.destroy_all
 FoodMenu.destroy_all
 Guest.destroy_all
 Vibe.destroy_all
+DinnerParty.destroy_all
+User.destroy_all
+
 
 puts "Seeding users"
 u1 = User.create(username: "sam1", first_name: "Sam1", last_name: "Avery1", email: "sam.avery1+1@gmail.com", password: "1234", propic_url: "https://images.unsplash.com/photo-1517849845537-4d257902454a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80")
