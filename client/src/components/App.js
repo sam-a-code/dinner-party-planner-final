@@ -5,6 +5,8 @@ import Signup from './Signup';
 import Home from './Home'
 import Login from './Login'
 import Navbar from './Navbar'
+import Profile from './Profile'
+import NewDP from './NewDP'
 
 
 function App() {
@@ -25,12 +27,15 @@ function App() {
 
 
   return (
-    <div>
-      <Navbar />
+    <>
+      <Navbar currentUser={currentUser} />
       {!currentUser ? <><Login errors={'please log in'} updateUser={updateUser}/> or <Signup /> </> :
+      <>
       <Home />
+      <div>boo</div>
+      </>
   }
-    </div>
+    </>
   );
 }
 
