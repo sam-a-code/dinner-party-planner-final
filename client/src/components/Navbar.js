@@ -23,6 +23,7 @@ function Navbar({ currentUser }) {
         <Link to="/">   Home   </Link>
         <Link to="/profile">   Profile   </Link>
         <Link to="/create-dinner-party">   Create Dinner Party</Link>
+        <Link to="/explore">   Explore</Link>
       </header>
     );
   }

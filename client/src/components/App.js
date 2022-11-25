@@ -7,6 +7,7 @@ import Login from './Login'
 import Navbar from './Navbar'
 import Profile from './Profile'
 import NewDP from './NewDP'
+import Explore from './Explore'
 
 
 function App() {
@@ -31,8 +32,12 @@ function App() {
       <Navbar currentUser={currentUser} />
       {!currentUser ? <><Login errors={'please log in'} updateUser={updateUser}/> or <Signup /> </> :
       <>
-      <Home />
-      <div>boo</div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/create-dinner-party" element={<NewDP />} />
+        <Route path="/explore" element={<Explore />} />
+      </Routes>
       </>
   }
     </>
