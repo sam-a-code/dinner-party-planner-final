@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def show
     # user = User.find(params[:id])
-    render json: current_user, status: :ok
+    render json: current_user, serializer: ProfileSerializer, include: ['dinner_parties', 'dinner_parties.vibes', 'dinner_parties.guests', 'dinner_parties.food_menus', 'dinner_parties.drink_menus'], status: :ok
   end
 
   def create
