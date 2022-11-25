@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 
+// add conditional rendering - on click show more of each card
+
+
 function DinnerPartyCard({date, location, vibes, drinks, food, guests}) {
     return (
         <>
