@@ -34,7 +34,7 @@ function App() {
       <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile currentUser={currentUser}/>} />
         <Route path="/create-dinner-party" element={<NewDP />} />
         <Route path="/explore" element={<Explore />} />
       </Routes>
