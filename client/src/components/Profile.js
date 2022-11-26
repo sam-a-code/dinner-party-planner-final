@@ -19,7 +19,8 @@ function Profile({ currentUser }) {
     return (
         <>
         <h1>Hi, {currentUser.first_name}</h1>
-        {dinnerPartyCard}
+        <h4>View your previous dinner parties. Click to expand and see additional details!</h4>
+        <div className="card-parent">{dinnerPartyCard}</div>
         </>
     )
 }
