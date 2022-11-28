@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 
-function NewDP() {
+function NewDinnerParty() {
     return (
         <div className="new-dinner-party-background">
         <h1>New Dinner Party Template to come!</h1>
@@ -58,4 +58,4 @@ function NewDP() {
     )
 }
 
-export default NewDP
+export default NewDinnerParty

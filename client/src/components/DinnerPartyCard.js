@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
+import DinnerPartyView from "./DinnerPartyView";
 
 // add conditional rendering - on click show more of each card
 
 
-function DinnerPartyCard({date, location, vibes, drinks, food, guests}) {
+function DinnerPartyCard({id, date, location, vibes, drinks, food, guests, currentUser}) {
     return (
         <div className="card">
+            <p>ADD: total guest count, click to view more button, background white so text is easier to read</p>
         <h4>DATE: {date}</h4>
         <h4>LOCATION: {location}</h4>
         <h4>VIBES: {vibes.map((item,i) => (
@@ -52,6 +54,7 @@ function DinnerPartyCard({date, location, vibes, drinks, food, guests}) {
                 <br></br>
                 RSVP Status: {item.rsvp_status}</div>
         ))}</h4>
+        <Link to={`/dinner-parties/${id}`}><DinnerPartyView date={date} location={location} vibes={vibes} drinks={drinks} food={food} guests={guests} currentUser={currentUser} />View more</Link>
         </div>
     )
 }

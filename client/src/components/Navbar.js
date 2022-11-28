@@ -24,6 +24,7 @@ function Navbar({ currentUser }) {
         <Link to="/profile">   Profile   </Link>
         <Link to="/create-dinner-party">   Create Dinner Party</Link>
         <Link to="/explore">   Explore</Link>
+        <Link to="/dinner-parties/:id">   Dinner Parties</Link>
       </header>
     );
   }
