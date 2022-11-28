@@ -8,12 +8,14 @@ function Profile({ currentUser }) {
         console.log(dinner_party.vibes)
         return <DinnerPartyCard
             key={dinner_party.id}
+            id={dinner_party.id}
             date={dinner_party.date}
             location={dinner_party.location}
             vibes={dinner_party.vibes}
             drinks={dinner_party.drink_menus}
             food={dinner_party.food_menus}
             guests={dinner_party.guests}
+            currentUser={currentUser}
         />
     })
     return (

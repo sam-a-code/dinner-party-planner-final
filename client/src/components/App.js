@@ -6,8 +6,9 @@ import Home from './Home'
 import Login from './Login'
 import Navbar from './Navbar'
 import Profile from './Profile'
-import NewDP from './NewDP'
+import NewDinnerParty from './NewDinnerParty'
 import Explore from './Explore'
+import DinnerPartyView from './DinnerPartyView';
 
 
 function App() {
@@ -35,8 +36,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile currentUser={currentUser}/>} />
-        <Route path="/create-dinner-party" element={<NewDP />} />
+        <Route path="/create-dinner-party" element={<NewDinnerParty />} />
         <Route path="/explore" element={<Explore />} />
+        <Route path="/dinner-parties/:id" element={<DinnerPartyView />} />
+        {/* <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} /> */}
       </Routes>
       </>
   }
