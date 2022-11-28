@@ -54,7 +54,7 @@ function DinnerPartyCard({id, date, location, vibes, drinks, food, guests, curre
                 <br></br>
                 RSVP Status: {item.rsvp_status}</div>
         ))}</h4>
-        <Link to={`/dinner-parties/${id}`}><DinnerPartyView date={date} location={location} vibes={vibes} drinks={drinks} food={food} guests={guests} currentUser={currentUser} />View more</Link>
+        <Link to={`/dinner-parties/${id}`}>View more</Link>
         </div>
     )
 }

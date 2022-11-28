@@ -3,9 +3,7 @@ import { useNavigate } from "react-router-dom"
 import DinnerPartyCard from "./DinnerPartyCard";
 
 function Profile({ currentUser }) {
-    console.log(currentUser.dinner_parties)
     const dinnerPartyCard = currentUser.dinner_parties.map((dinner_party) => {
-        console.log(dinner_party.vibes)
         return <DinnerPartyCard
             key={dinner_party.id}
             id={dinner_party.id}
@@ -18,9 +16,32 @@ function Profile({ currentUser }) {
             currentUser={currentUser}
         />
     })
+
+
+
+    const dinnerPartyCount = currentUser.dinner_parties.length
+
+
+    // const d2 = currentUser.dinner_parties.map((dinner_party) => {
+    //     return dinner_party.guests.length
+    // })
+
+    // const d3 = currentUser.dinner_parties.map((dinner_party) => {
+    //     return dinner_party.guests
+    // })
+
+    // const d4 = d3.map((guests) => {
+    //     return guests.plus_ones
+    // })
+
+    //     console.log(d4)
+
+
+
     return (
         <>
         <h1>Hi, {currentUser.first_name}</h1>
+        <h2>You have had {dinnerPartyCount} dinner parties. </h2>
         <h4>View your previous dinner parties. Click to expand and see additional details!</h4>
         <div className="card-parent">{dinnerPartyCard}</div>
         </>

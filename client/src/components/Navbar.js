@@ -19,12 +19,12 @@ function Navbar({ currentUser }) {
 
     return (
       <header>
-        {currentUser? <button onClick={handleLogout}>Logout</button> : null}
         <Link to="/">   Home   </Link>
         <Link to="/profile">   Profile   </Link>
         <Link to="/create-dinner-party">   Create Dinner Party</Link>
         <Link to="/explore">   Explore</Link>
         <Link to="/dinner-parties/:id">   Dinner Parties</Link>
+        {currentUser? <button onClick={handleLogout}>Logout</button> : null}
       </header>
     );
   }

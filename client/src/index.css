@@ -28,11 +28,6 @@ code {
   justify-content: space-evenly;
 }
 
-.new-dinner-party-background {
-  background-image: url('https://images.unsplash.com/photo-1512386233331-f023884a92e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1495&q=80');
-
-}
-
 .food-menu-card {
   background-image: url('https://images.unsplash.com/photo-1554521838-fbe01ad99c31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=717&q=80');
   /* background-image: url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'); */
@@ -45,4 +40,14 @@ code {
 
 .menu-background {
   background-image: url('https://images.unsplash.com/photo-1590394017390-add3e9922c35?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
+}
+
+.new-dinner-party-background {
+  background-image: url('https://images.unsplash.com/photo-1512386233331-f023884a92e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1495&q=80');
+  display: block;
+  text-align: center;
+}
+
+.form-input {
+
 }
