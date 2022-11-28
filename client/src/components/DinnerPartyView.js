@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom"
 
-function DinnerPartyView({date, location, vibes, drinks, food, guests, currentUser}) {
+function DinnerPartyView({}) {
     const {id} = useParams();
     const [dinnerParty, setDinnerParty] = useState([])
     useEffect(() => {
@@ -36,8 +36,7 @@ function DinnerPartyView({date, location, vibes, drinks, food, guests, currentUs
     const mappedFoodMenus = dinnerParty.food_menus?.map((item, i) => {
         return (
         <div key={i}>
-        {item.recipe_name? <div>Recipe name: {item.recipe_name}</div> : null }
-        {item.recipe_link? <a href={item.recipe_link}>Recipe link</a> : null}
+        {item.recipe_name? <a href={item.recipe_link}>{item.recipe_name}</a> : null }
         {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
          </div>)
     })
@@ -45,8 +44,7 @@ function DinnerPartyView({date, location, vibes, drinks, food, guests, currentUs
     const mappedDrinkMenus = dinnerParty.drink_menus?.map((item, i) => {
         return (
         <div key={i}>
-        {item.recipe_name? <div>Recipe name: {item.recipe_name}</div> : null }
-        {item.recipe_link? <a href={item.recipe_link}>Recipe link</a> : null}
+        {item.recipe_name? <a href={item.recipe_link}>{item.recipe_name}</a> : null }
         {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
          </div>)
     })
