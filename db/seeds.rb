@@ -23,8 +23,11 @@ dp6 = DinnerParty.create(user_id: u3.id, date: "10-10-2023", location: "Sam 3's 
 puts "Seeding drink menus"
 
 dm1 = DrinkMenu.create(dinner_party_id: dp1.id, recipe_name: "Moscow Mule", recipe_link: "https://www.bonappetit.com/recipe/moscow-mule", ingredients: "Ice cubes, vodka, lime juice, ginger beer, lime wedge")
-dm2 = DrinkMenu.create(dinner_party_id: dp2.id, recipe_name: "French 75", recipe_link: "https://www.bonappetit.com/recipe/french-75-3", ingredients: "Gin, lemon juice, syrup, Champagne")
-dm3 = DrinkMenu.create(dinner_party_id: dp3.id, recipe_name: "Mezcal Margarita", recipe_link: "https://www.gimmesomeoven.com/mezcal-margaritas-recipe/", ingredients: "Mezcal, Cointreau, lime juice, agave nectar, lime wedge")
+dm2 = DrinkMenu.create(dinner_party_id: dp2.id, recipe_name: "Moscow Mule", recipe_link: "https://www.bonappetit.com/recipe/moscow-mule", ingredients: "Ice cubes, vodka, lime juice, ginger beer, lime wedge")
+dm3 = DrinkMenu.create(dinner_party_id: dp1.id, recipe_name: "French 75", recipe_link: "https://www.bonappetit.com/recipe/french-75-3", ingredients: "Gin, lemon juice, syrup, Champagne")
+dm4 = DrinkMenu.create(dinner_party_id: dp2.id, recipe_name: "French 75", recipe_link: "https://www.bonappetit.com/recipe/french-75-3", ingredients: "Gin, lemon juice, syrup, Champagne")
+dm5 = DrinkMenu.create(dinner_party_id: dp2.id, recipe_name: "Mezcal Margarita", recipe_link: "https://www.gimmesomeoven.com/mezcal-margaritas-recipe/", ingredients: "Mezcal, Cointreau, lime juice, agave nectar, lime wedge")
+dm6 = DrinkMenu.create(dinner_party_id: dp3.id, recipe_name: "Mezcal Margarita", recipe_link: "https://www.gimmesomeoven.com/mezcal-margaritas-recipe/", ingredients: "Mezcal, Cointreau, lime juice, agave nectar, lime wedge")
 
 puts "Seeding food menus"
 fm1 = FoodMenu.create(dinner_party_id: dp1.id, recipe_name: "Beet Terrine", recipe_link: "https://www.chefsouschef.com/beet-terrine/", ingredients: "Beets, chevre, basil, garlic, lemon, salt, and pepper")
