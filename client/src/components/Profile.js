@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import DinnerPartyCard from "./DinnerPartyCard";
+import NewDinnerParty from "./NewDinnerParty";
+import DinnerPartyMiniCard from "./DinnerPartyMiniCard";
 
 function Profile({ currentUser }) {
     const dinnerPartyCard = currentUser.dinner_parties.map((dinner_party) => {
@@ -16,11 +18,17 @@ function Profile({ currentUser }) {
             currentUser={currentUser}
         />
     })
-
-
+    const dinnerPartyMiniCard = currentUser.dinner_parties.map((dinner_party) => {
+        return <DinnerPartyMiniCard
+            key={dinner_party.id}
+            id={dinner_party.id}
+            date={dinner_party.date}
+            location={dinner_party.location}
+            currentUser={currentUser}
+        />
+    })
 
     const dinnerPartyCount = currentUser.dinner_parties.length
-
 
     // const d2 = currentUser.dinner_parties.map((dinner_party) => {
     //     return dinner_party.guests.length
@@ -34,10 +42,10 @@ function Profile({ currentUser }) {
     //     return guests.plus_ones
     // })
 
-    //     console.log(d4)
+        // console.log(currentUser.id)
 
-
-
+        const userID = currentUser.id
+        console.log(userID)
     return (
         <>
         <div className="profile-text">
@@ -45,7 +53,9 @@ function Profile({ currentUser }) {
         <h2>You have had {dinnerPartyCount} dinner parties. </h2>
         <h4>View your previous dinner parties. Click to expand and see additional details!</h4>
         </div>
-        <div className="card-parent">{dinnerPartyCard}</div>
+        <div className="card-parent">{dinnerPartyMiniCard}</div>
+        {/* <div className="card-parent">{dinnerPartyCard}</div> */}
+        <button>Create new dinner party</button>
         </>
     )
 }

@@ -19,5 +19,4 @@ Rails.application.routes.draw do
   get '/authorized_user', to: "users#show"
 
 
-
 end
