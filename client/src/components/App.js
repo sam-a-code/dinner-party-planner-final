@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <Navbar currentUser={currentUser} />
-      {!currentUser ? <><Login errors={'please log in'} updateUser={updateUser}/> or <Signup /> </> :
+      {!currentUser ? <div className="signup-login-text"><h3></h3>Please sign in to access your dinner parties!<Login errors={'please log in'} updateUser={updateUser}/> or <Signup /> </div> :
       <>
       <Routes>
         <Route path="/" element={<Home />} />

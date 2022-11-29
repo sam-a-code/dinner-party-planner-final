@@ -35,14 +35,15 @@ function Signup () {
 
 
     return (
-    <>
-    <h1>Create account</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="signup-login-form">
+    <h3 >Create account</h3>
+      <form onSubmit={handleSubmit} >
         <input
           type="text"
           value={username}
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
+          className="signup-login-form-input"
         />
         <br></br>
         <input
@@ -50,6 +51,7 @@ function Signup () {
           value={password}
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
+          className="signup-login-form-input"
         />
          <br></br>
         <input
@@ -57,6 +59,7 @@ function Signup () {
           value={email}
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
+          className="signup-login-form-input"
         />
          <br></br>
         <input
@@ -64,6 +67,7 @@ function Signup () {
           value={firstName}
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
+          className="signup-login-form-input"
         />
          <br></br>
         <input
@@ -71,11 +75,12 @@ function Signup () {
           value={lastName}
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
+          className="signup-login-form-input"
         />
          <br></br>
-        <button type="submit">Create account</button>
+        <button className="signup-login-button" type="submit">Create account</button>
       </form>
-      </>
+      </div>
     );
 }
 

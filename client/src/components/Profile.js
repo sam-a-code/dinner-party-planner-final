@@ -40,9 +40,11 @@ function Profile({ currentUser }) {
 
     return (
         <>
+        <div className="profile-text">
         <h1>Hi, {currentUser.first_name}</h1>
         <h2>You have had {dinnerPartyCount} dinner parties. </h2>
         <h4>View your previous dinner parties. Click to expand and see additional details!</h4>
+        </div>
         <div className="card-parent">{dinnerPartyCard}</div>
         </>
     )
