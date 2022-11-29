@@ -9,6 +9,7 @@ import Profile from './Profile'
 import NewDinnerParty from './NewDinnerParty'
 import Explore from './Explore'
 import DinnerPartyView from './DinnerPartyView';
+import DinnerPartyEdit from './DinnerPartyEdit'
 
 
 function App() {
@@ -39,9 +40,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile currentUser={currentUser}/>} />
-        <Route path="/create-dinner-party" element={<NewDinnerParty userID={userID}/>} />
+        <Route path="/create-dinner-party" element={<NewDinnerParty userID={userID} currentUser={currentUser}/>} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/dinner-parties/:id" element={<DinnerPartyView />} />
+        <Route path="/dinner-parties/edit/:id" element={<DinnerPartyEdit />} />
+        {/* <Route path="/dinner-parties/:id" element={<DinnerPartyView />} /> */}
         {/* <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} /> */}
       </Routes>

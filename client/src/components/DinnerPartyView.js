@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams, Link } from "react-router-dom"
 
 function DinnerPartyView({}) {
     const {id} = useParams();
@@ -49,14 +49,7 @@ function DinnerPartyView({}) {
          </div>)
     })
 
-
     const totalGuests = dinnerParty.guests
-
-    // const vibeObj = dinnerParty.vibes
-    // console.log(vibeObj)
-    // for (const [key, value] of Object.entries(vibeObj)){
-    //     console.log(`${key} ${value}`)
-    // }
 
 
     return (
@@ -76,6 +69,7 @@ function DinnerPartyView({}) {
         <h4>Drinks</h4>
         <div>{mappedDrinkMenus}</div>
         </div>
+        <button><Link to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
         </div>
     )
 }

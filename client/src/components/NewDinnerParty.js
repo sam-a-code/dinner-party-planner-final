@@ -3,15 +3,16 @@ import { useNavigate } from "react-router-dom"
 import { useForm, FormProvider, useFormContext } from "react-hook-form"
 
 
-function NewDinnerParty({userID}) {
+function NewDinnerParty({userID, currentUser}) {
     const { register, handleSubmit } = useForm()
     const methods = useForm()
     const [errors, setErrors] = useState([])
     const [date, setDate] = useState("")
     const [location, setLocation] = useState("")
     const [dinnerParty, setDinnerParty] = useState({})
-    // const [id, setID] = useState(userID)
-    const [id, setID] = useState("")
+    const [id, setID] = useState(userID)
+    // const [id, setID] = useState("")
+    const navigate = useNavigate()
     // const [vibes, setVibes] = useState("")
     // const [guests, setGuests] = useState("")
     // const [foodMenu, setFoodMenu] = useState("")
@@ -24,7 +25,7 @@ function NewDinnerParty({userID}) {
         const newDP = {
             date: date,
             location: location,
-            user: userID,
+            user_id: id,
         }
         fetch(`/dinner_parties`, {
           method: "POST",
@@ -33,14 +34,14 @@ function NewDinnerParty({userID}) {
         })
         .then(res => res.json())
         .then(newDP => setDinnerParty(newDP))
+        navigate(`/profile`)
         console.log(newDP)
       }
 
-      console.log(userID)
 
     return (
         <div className="new-dinner-party-background">
-        <h1>ready to plan a new dinner party?</h1>
+        <h1>enter a date and location to create a new dinner party</h1>
         <div >
             <form className="new-dinner-party-form" onSubmit={handleNewDPSubmit}>
                 <input
@@ -63,7 +64,7 @@ function NewDinnerParty({userID}) {
                 />
             </form>
         </div>
-        <div>
+        {/* <div>
             <div>Guest cards</div>
                 <button>Add guest</button>
                 <br></br>
@@ -76,7 +77,7 @@ function NewDinnerParty({userID}) {
             <div>Drink cards</div>
                 <button>Add drinks</button>
                 <br></br>
-        </div>
+        </div> */}
         </div>
     )
 
