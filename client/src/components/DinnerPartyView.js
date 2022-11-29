@@ -25,7 +25,7 @@ function DinnerPartyView({}) {
         return (
         <div key={i}>
         {item.name? <div>Name: {item.name}</div> : null }
-        {item.contact? <div>Contact info: {item.contact}</div> : null}
+        {item.contact? <div>Contact: {item.contact}</div> : null}
         {item.plus_ones? <div>Plus ones: {item.plus_ones}</div> : null}
         {item.dietary_restrictions? <div>Dietary Restrictions: {item.dietary_restrictions}</div> : null}
         {item.assigned_dishes? <div>Assigned Dishes: {item.assigned_dishes}</div> : null}
@@ -50,7 +50,7 @@ function DinnerPartyView({}) {
     })
 
 
-
+    const totalGuests = dinnerParty.guests
 
     // const vibeObj = dinnerParty.vibes
     // console.log(vibeObj)
@@ -60,20 +60,23 @@ function DinnerPartyView({}) {
 
 
     return (
-        <>
-        <div>{id}</div>
+        <div className="view-card">
+            <div className="view-card-white">
+        <div>id: {id}</div>
         <h4>Main info</h4>
         <div>{dinnerParty.location}</div>
         <div>{dinnerParty.date}</div>
         <h4>Vibes</h4>
         <div>{mappedVibes}</div>
         <h4>Guests</h4>
+        {totalGuests? <h4>NUMBER</h4> : null}
         <div>{mappedGuests}</div>
         <h4>Food</h4>
         <div>{mappedFoodMenus}</div>
         <h4>Drinks</h4>
         <div>{mappedDrinkMenus}</div>
-        </>
+        </div>
+        </div>
     )
 }
 

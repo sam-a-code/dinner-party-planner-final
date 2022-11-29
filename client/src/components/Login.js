@@ -37,12 +37,13 @@ function Login({ updateUser }) {
 
     return (
       <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="signup-login-form">
         <input
           type="text"
           value={username}
           placeholder="Username"
           onChange={(e) => setUsername(e.target.value)}
+          className="signup-login-form-input"
         />
         <br></br>
         <input
@@ -50,10 +51,12 @@ function Login({ updateUser }) {
           value={password}
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
+          className="signup-login-form-input"
         />
          <br></br>
-        <button type="submit">Login</button>
+        <button type="submit" className="signup-login-button" >Login</button>
       </form>
+      <br></br>
       {errors ? <div>{errors}</div> : null}
       </>
     );
