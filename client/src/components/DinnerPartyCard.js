@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom"
 import DinnerPartyView from "./DinnerPartyView";
 
-// add conditional rendering - on click show more of each card
-
-
 function DinnerPartyCard({id, date, location, vibes, drinks, food, guests, currentUser}) {
     return (
         <div className="card">
@@ -40,18 +37,18 @@ function DinnerPartyCard({id, date, location, vibes, drinks, food, guests, curre
         ))}</h4>
         <h4>DRINKS: {drinks.map((item,i) => (
             <div key={i}>
-                <a href={item.recipe_link}>Recipe name: {item.recipe_name}</a>
-                <br></br>
+                <a href={item.recipe_link}>{item.recipe_name}</a>
+                {/* <br></br>
                 Ingredients: {item.ingredients}
-                <br></br>
-                <br></br>
+                <br></br> */}
+
             </div>
         ))}</h4>
         <h4>FOOD: {food.map((item,i) => (
             <div key={i}>
-                <a href={item.recipe_link}>Recipe name: {item.recipe_name}</a>
-                <br></br>
-                Ingredients: {item.ingredients}
+                <a href={item.recipe_link}>{item.recipe_name}</a>
+                {/* <br></br>
+                Ingredients: {item.ingredients} */}
             </div>
         ))}</h4>
         <button className="view-more-button"><Link to={`/dinner-parties/${id}`}>Click to edit or view more</Link></button>

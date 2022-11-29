@@ -27,6 +27,9 @@ function App() {
 
   const updateUser = (user) => setCurrentUser(user)
 
+  const userID = currentUser.id
+  console.log(userID)
+
 
   return (
     <>
@@ -36,7 +39,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile currentUser={currentUser}/>} />
-        <Route path="/create-dinner-party" element={<NewDinnerParty />} />
+        <Route path="/create-dinner-party" element={<NewDinnerParty userID={userID}/>} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/dinner-parties/:id" element={<DinnerPartyView />} />
         {/* <Route path="/login" element={<Login />} />

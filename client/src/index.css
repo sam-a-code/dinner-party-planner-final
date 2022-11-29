@@ -130,8 +130,9 @@ code {
   text-align: center;
   margin-right: 15%;
   margin-left: 15%;
+  margin-bottom: 30px;
   border-radius: 8px;
-  padding-top: 5px;
+  padding: 20px 0px;
   background-image: url('https://images.unsplash.com/photo-1554521838-fbe01ad99c31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=717&q=80');
 }
 
