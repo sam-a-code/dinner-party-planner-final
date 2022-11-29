@@ -73,6 +73,21 @@ code {
   margin-right: auto;
 }
 
+.edit-card {
+  background-color: white;
+  max-width: 25%;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.edit-card-parent {
+  display: flex
+}
+
 .card-white {
   background-color: white;
   opacity: .8;
@@ -108,8 +123,9 @@ code {
   background-image: url('https://images.unsplash.com/photo-1512386233331-f023884a92e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1495&q=80');
   display: block;
   text-align: center;
-  padding-top: 15px;
   margin-top: 5px;
+  padding-top: 150px;
+  padding-bottom: 350px
 }
 
 .new-dinner-party-form-input {
@@ -187,6 +203,18 @@ code {
   /* margin-top: 10px;
   margin-bottom: 10px; */
   margin: 10px 60px;
+  font-family: 'Klee One';
+  text-transform: lowercase;
+  text-align: center;
+}
+
+.create-dinner-party-button {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  margin-right: 40%;
+  margin-left: 40%;
+  margin-bottom: 5px;
   font-family: 'Klee One';
   text-transform: lowercase;
   text-align: center;

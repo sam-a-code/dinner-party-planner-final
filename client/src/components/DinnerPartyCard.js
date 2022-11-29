@@ -51,7 +51,8 @@ function DinnerPartyCard({id, date, location, vibes, drinks, food, guests, curre
                 Ingredients: {item.ingredients} */}
             </div>
         ))}</h4>
-        <button className="view-more-button"><Link to={`/dinner-parties/${id}`}>Click to edit or view more</Link></button>
+        <button className="view-more-button"><Link to={`/dinner-parties/${id}`}>Click to view more</Link></button>
+        <button className="view-more-button"><Link to={`/dinner-parties/edit/${id}`}>Click to edit</Link></button>
         </div>
         </div>
     )

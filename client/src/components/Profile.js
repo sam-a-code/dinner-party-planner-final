@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import DinnerPartyCard from "./DinnerPartyCard";
 import NewDinnerParty from "./NewDinnerParty";
 import DinnerPartyMiniCard from "./DinnerPartyMiniCard";
@@ -52,10 +52,10 @@ function Profile({ currentUser }) {
         <h1>Hi, {currentUser.first_name}</h1>
         <h2>You have had {dinnerPartyCount} dinner parties. </h2>
         <h4>View your previous dinner parties. Click to expand and see additional details!</h4>
-        </div>
         <div className="card-parent">{dinnerPartyMiniCard}</div>
         {/* <div className="card-parent">{dinnerPartyCard}</div> */}
-        <button>Create new dinner party</button>
+        </div>
+        <button className="create-dinner-party-button"><Link to={`/create-dinner-party`}>Create a new dinner party</Link></button>
         </>
     )
 }
