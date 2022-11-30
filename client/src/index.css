@@ -71,6 +71,8 @@ code {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 5px;
+  margin-top: 5px;
 }
 
 .edit-card {
@@ -103,7 +105,9 @@ code {
 .view-card-white {
   background-color: white;
   opacity: .8;
-  padding: 5%
+  padding: 5%;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .card-parent {
@@ -230,6 +234,7 @@ code {
   padding: 5px 10px;
   margin-right: 45%;
   margin-left: 45%;
+  margin-bottom: 10px;
   font-family: 'Klee One';
   text-transform: lowercase;
   text-align: center;

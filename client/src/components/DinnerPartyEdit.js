@@ -1,19 +1,55 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom"
 import DinnerPartyView from "./DinnerPartyView";
+import moment from 'moment'
 
-function DinnerPartyEdit({date, location, currentUser}) {
+function DinnerPartyEdit({}) {
     const {id} = useParams();
 
-    const [dinnerParties, setDinnerParties] = useState([])
+    const [dinnerParty, setDinnerParty] = useState([])
 
     useEffect(() => {
         fetch(`/dinner_parties/${id}`)
           .then((res) => res.json())
-          .then((dinnerParties) => setDinnerParties(dinnerParties));
+          .then((dinnerParty) => setDinnerParty(dinnerParty));
       }, []);
 
-      const mappedVibes = dinnerParties.vibes?.map((item, i) => {
+    function handleVibesDelete(vibeID) {
+        fetch(`/vibes/${vibeID}`, {
+            method: "DELETE",
+        })
+        const updatedVibes = dinnerParty.vibes.filter(vibe => vibe.id !== vibeID)
+        setDinnerParty({...dinnerParty, vibes: updatedVibes})
+    }
+
+    function handleGuestDelete(guestID) {
+        fetch(`/guests/${guestID}`, {
+            method: "DELETE",
+        })
+        const updatedGuests = dinnerParty.guests.filter(guest => guest.id !== guestID)
+        setDinnerParty({...dinnerParty, guests: updatedGuests})
+    }
+
+    function handleFoodDelete(foodID) {
+        fetch(`/food_menus/${foodID}`, {
+            method: "DELETE",
+        })
+        const updatedFoods = dinnerParty.food_menus.filter(foodMenu => foodMenu.id !== foodID)
+        setDinnerParty({...dinnerParty, food_menus: updatedFoods})
+    }
+
+    function handleDrinkDelete(drinkID) {
+        fetch(`/drink_menus/${drinkID}`, {
+            method: "DELETE",
+        })
+        const updatedDrinks = dinnerParty.drink_menus.filter(drinkMenu => drinkMenu.id !== drinkID)
+        setDinnerParty({...dinnerParty, drink_menus: updatedDrinks})
+    }
+
+
+      const mappedVibes = dinnerParty.vibes?.map((item, i) => {
+        const vibeID = item.id
+        console.log(vibeID)
         return (
         <div key={i} className="edit-card">
         {item.theme? <div>Theme: {item.theme}</div> : null }
@@ -21,11 +57,12 @@ function DinnerPartyEdit({date, location, currentUser}) {
         {item.spotify_playlist? <a href={item.spotify_playlist}>Spotify playlist</a> : null}
         {item.games? <div>Games: {item.games}</div> : null}
         <br></br>
-        <button>x</button>
+        <button onClick={() => handleVibesDelete(vibeID)}>x</button>
          </div>)
     })
 
-    const mappedGuests = dinnerParties.guests?.map((item, i) => {
+    const mappedGuests = dinnerParty.guests?.map((item, i) => {
+        const guestID = item.id
         return (
         <div key={i} className="edit-card">
         {item.name? <div>Name: {item.name}</div> : null }
@@ -34,34 +71,39 @@ function DinnerPartyEdit({date, location, currentUser}) {
         {item.dietary_restrictions? <div>Dietary Restrictions: {item.dietary_restrictions}</div> : null}
         {item.assigned_dishes? <div>Assigned Dishes: {item.assigned_dishes}</div> : null}
         {item.rsvp_status? <div>RSVP Status: {item.rsvp_status}</div> : null}
-        <button>x</button>
+        <button onClick={() => handleGuestDelete(guestID)}>x</button>
          </div>)
     })
 
-    const mappedFoodMenus = dinnerParties.food_menus?.map((item, i) => {
+    const mappedFoodMenus = dinnerParty.food_menus?.map((item, i) => {
+        const foodID = item.id
         return (
         <div key={i} className="edit-card">
         {item.recipe_name? <a href={item.recipe_link}>{item.recipe_name}</a> : null }
         {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
-        <button>x</button>
+        <button onClick={() => handleFoodDelete(foodID)}>x</button>
          </div>)
     })
 
-    const mappedDrinkMenus = dinnerParties.drink_menus?.map((item, i) => {
+    const mappedDrinkMenus = dinnerParty.drink_menus?.map((item, i) => {
+        const drinkID = item.id
         return (
         <div key={i} className="edit-card">
         {item.recipe_name? <a href={item.recipe_link}>{item.recipe_name}</a> : null }
         {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
-        <button>x</button>
+        <button onClick={() => handleDrinkDelete(drinkID)}>x</button>
          </div>)
     })
+
+        const dpDate = dinnerParty.date
+
 
     return (
         <div>
-            <h3 className="edit-page-text">{dinnerParties.location}: {dinnerParties.date}</h3>
+            <h3 className="edit-page-text">{dinnerParty.location} <br></br>{moment(dpDate).format("MMMM Do, YYYY")}</h3>
             <h3 className="edit-page-text">Vibes</h3>
             <h3 className="edit-card-parent">{mappedVibes}</h3>
-            <button className="edit-dinner-party-button">figure out your party vibes</button>
+            <button className="edit-dinner-party-button">add some vibes to your party</button>
             <h3 className="edit-page-text">Guests</h3>
             <h3 className="edit-card-parent">{mappedGuests}</h3>
             <button className="edit-dinner-party-button">add to your guest list</button>
