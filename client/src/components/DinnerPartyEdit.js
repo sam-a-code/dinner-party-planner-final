@@ -58,19 +58,19 @@ function DinnerPartyEdit({date, location, currentUser}) {
 
     return (
         <div>
-            <h3>{dinnerParties.location}: {dinnerParties.date}</h3>
-            <h3>Vibes</h3>
+            <h3 className="edit-page-text">{dinnerParties.location}: {dinnerParties.date}</h3>
+            <h3 className="edit-page-text">Vibes</h3>
             <h3 className="edit-card-parent">{mappedVibes}</h3>
-            <button>Add vibe to list</button>
-            <h3>Guests</h3>
+            <button className="edit-dinner-party-button">figure out your party vibes</button>
+            <h3 className="edit-page-text">Guests</h3>
             <h3 className="edit-card-parent">{mappedGuests}</h3>
-            <button>Add guest to list</button>
-            <h3>Food Menus</h3>
+            <button className="edit-dinner-party-button">add to your guest list</button>
+            <h3 className="edit-page-text">Food Menus</h3>
             <h3 className="edit-card-parent">{mappedFoodMenus}</h3>
-            <button>Add food to list</button>
-            <h3>Drink Menus</h3>
+            <button className="edit-dinner-party-button">add an option for your food menu</button>
+            <h3 className="edit-page-text">Drink Menus</h3>
             <h3 className="edit-card-parent">{mappedDrinkMenus}</h3>
-            <button>Add drink to list</button>
+            <button className="edit-dinner-party-button">add an option for your drink menu</button>
         </div>
     )
 }

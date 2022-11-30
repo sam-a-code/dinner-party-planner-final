@@ -75,17 +75,22 @@ code {
 
 .edit-card {
   background-color: white;
-  max-width: 25%;
+  max-width: 30%;
   display: block;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
 }
 
 .edit-card-parent {
   display: flex
+}
+
+.edit-page-text {
+  text-align: center;
+  text-decoration: underline;
 }
 
 .card-white {
@@ -135,7 +140,6 @@ code {
   margin-top: 5px;
   min-width: 35%;
   font-family: 'Klee One';
-  text-transform: lowercase;
 }
 
 
@@ -220,6 +224,17 @@ code {
   text-align: center;
 }
 
+.edit-dinner-party-button {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  margin-right: 45%;
+  margin-left: 45%;
+  font-family: 'Klee One';
+  text-transform: lowercase;
+  text-align: center;
+}
+
 .signup-login-text {
   display: block;
   text-align: center;
@@ -231,7 +246,18 @@ code {
   margin-top: 0px;
 }
 
-
+.explore-vibes {
+  margin-left: 5%;
+}
+.explore-spotify {
+  margin-left: 5%;
+}
+.explore-foods {
+  margin-left: 5%;
+}
+.explore-drinks {
+  margin-left: 5%;
+}
 
 
 /* MAYBE USING */
