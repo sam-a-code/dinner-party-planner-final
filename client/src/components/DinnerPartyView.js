@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom"
+import moment from 'moment'
 
 function DinnerPartyView({}) {
     const {id} = useParams();
@@ -50,6 +51,7 @@ function DinnerPartyView({}) {
     })
 
     const totalGuests = dinnerParty.guests
+    const dpDate = dinnerParty.date
 
 
     return (
@@ -58,7 +60,7 @@ function DinnerPartyView({}) {
         <div>id: {id}</div>
         <h4>Main info</h4>
         <div>{dinnerParty.location}</div>
-        <div>{dinnerParty.date}</div>
+        <div>{moment(dpDate).format("MMMM Do, YYYY")}</div>
         <h4>Vibes</h4>
         <div>{mappedVibes}</div>
         <h4>Guests</h4>
@@ -69,7 +71,7 @@ function DinnerPartyView({}) {
         <h4>Drinks</h4>
         <div>{mappedDrinkMenus}</div>
         </div>
-        <button><Link to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
+        <button className="edit-dinner-party-button"><Link to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
         </div>
     )
 }

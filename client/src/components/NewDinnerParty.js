@@ -54,7 +54,7 @@ function NewDinnerParty({userID, currentUser}) {
                 />
                 <br></br>
                 <input placeholder="Date" className="new-dinner-party-form-input"
-                type="datetime"
+                type="date"
                 name="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
