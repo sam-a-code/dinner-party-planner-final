@@ -1,11 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
-import { useForm, FormProvider, useFormContext } from "react-hook-form"
 
 
 function NewDinnerParty({userID, currentUser}) {
-    const { register, handleSubmit } = useForm()
-    const methods = useForm()
     const [errors, setErrors] = useState([])
     const [date, setDate] = useState("")
     const [location, setLocation] = useState("")
@@ -25,17 +22,26 @@ function NewDinnerParty({userID, currentUser}) {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(newDP),
         })
-        .then(res => res.json())
-        .then(newDP => setDinnerParty(newDP))
-        navigate(`/profile`)
-        console.log(newDP)
+        .then(res => {
+            if (res.ok){
+                res.json()
+                .then(newDP => setDinnerParty(newDP))
+                navigate('/profile')
+            } else {
+                res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+                console.log(errors)
+            }
+        })
+        // .then(res => res.json())
+        // .then(newDP => setDinnerParty(newDP))
+        // navigate(`/profile`)
+        // console.log(newDP)
       }
 
 
     return (
         <div className="new-dinner-party-background">
         <h1>enter a date and location to create a new dinner party</h1>
-        <div >
             <form className="new-dinner-party-form" onSubmit={handleNewDPSubmit}>
                 <input
                 placeholder="Location"
@@ -56,85 +62,9 @@ function NewDinnerParty({userID, currentUser}) {
                 <input type="submit" value="create dinner party" className="form-submit-button"
                 />
             </form>
-        </div>
-        {/* <div>
-            <div>Guest cards</div>
-                <button>Add guest</button>
-                <br></br>
-            <div>Vibe cards</div>
-                <button>Add vibes</button>
-                <br></br>
-            <div>Food cards</div>
-                <button>Add food</button>
-                <br></br>
-            <div>Drink cards</div>
-                <button>Add drinks</button>
-                <br></br>
-        </div> */}
+            {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         </div>
     )
-
-
-
-
 }
 
 export default NewDinnerParty
-
-  {/* original form below */}
-        {/* <form>
-            <label>Date: </label>
-                <input
-                type="datetime"
-                name="date"
-                placeholder="Select date and time"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                />
-                <br></br>
-            <label>Location: </label>
-                <input
-                type="text"
-                name="location"
-                placeholder="Select location"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                />
-                <br></br>
-            <label>Vibes: </label>
-                <input
-                type="text"
-                name="vibes"
-                placeholder="Define your party vibe"
-                value={vibes}
-                onChange={(e) => setVibes(e.target.value)}
-                />
-                <br></br>
-            <label>Guests: </label>
-                <input
-                type="text"
-                name="guests"
-                placeholder="Who is coming to your party?"
-                value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-                />
-                <br></br>
-            <label>Food menu: </label>
-                <input
-                type="text"
-                name="food menu"
-                placeholder="What do you plan to cook?"
-                value={foodMenu}
-                onChange={(e) => setFoodMenu(e.target.value)}
-                />
-                <br></br>
-            <label>Drink menu: </label>
-                <input
-                type="text"
-                name="drink menu"
-                placeholder="What do you plan to drink?"
-                value={drinkMenu}
-                onChange={(e) => setDrinkMenu(e.target.value)}
-                />
-                <br></br>
-        </form> */}

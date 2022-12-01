@@ -3,11 +3,11 @@ import { useNavigate, Link } from "react-router-dom"
 import DinnerPartyView from "./DinnerPartyView";
 import moment from 'moment';
 
-function DinnerPartyMiniCard({id, date, location, currentUser}) {
+function DinnerPartyMiniCard({id, date, location, currentUser, dpGuests}) {
     return (
         <div className="card">
             <div className="card-white">
-            <p>ADD: total guest count</p>
+            <p>Guests: {dpGuests}</p>
         <h4>DATE: {moment(date).format("MMMM Do, YYYY")}</h4>
         {/* <h4>DATE: {date}</h4> */}
         <h4>LOCATION: {location}</h4>
