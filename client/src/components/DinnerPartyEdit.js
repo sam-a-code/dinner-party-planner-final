@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom"
 import DinnerPartyView from "./DinnerPartyView";
 import moment from 'moment'
-import AddGuestForm from "./AddGuestForm";
-import AddVibeForm from "./AddVibeForm";
 
 function DinnerPartyEdit({}) {
     const {id} = useParams();
@@ -13,6 +11,7 @@ function DinnerPartyEdit({}) {
     const [showGuestForm, setShowGuestForm] = useState(false)
     const [showFoodForm, setShowFoodForm] = useState(false)
     const [showDrinkForm, setShowDrinkForm] = useState(false)
+    const [errors, setErrors] = useState([])
 
     //add vibes state
     const [addTheme, setAddTheme] = useState("")
@@ -27,6 +26,16 @@ function DinnerPartyEdit({}) {
     const [addDietaryRestrictions, setAddDietaryRestrictions] = useState("")
     const [addAssignedDishes, setAddAssignedDishes] = useState("")
     const [addRSVPStatus, setAddRSVPStatus] = useState("")
+
+    //add food state
+    const [addFoodRecipeName, setAddFoodRecipeName] = useState("")
+    const [addFoodRecipeLink, setAddFoodRecipeLink] = useState("")
+    const [addFoodRecipeIngredients, setAddFoodRecipeIngredients] = useState("")
+
+    //add drink state
+    const [addDrinkRecipeName, setAddDrinkRecipeName] = useState("")
+    const [addDrinkRecipeLink, setAddDrinkRecipeLink] = useState("")
+    const [addDrinkRecipeIngredients, setAddDrinkRecipeIngredients] = useState("")
 
     useEffect(() => {
         fetch(`/dinner_parties/${id}`)
@@ -81,7 +90,7 @@ function DinnerPartyEdit({}) {
             body: JSON.stringify(addVibe),
         })
         .then(res => res.json())
-        const updatedVibes = dinnerParty.vibes
+        const updatedVibes = [...dinnerParty.vibes, addVibe]
         setDinnerParty({...dinnerParty, vibes: updatedVibes})
         console.log(updatedVibes)
     }
@@ -103,9 +112,47 @@ function DinnerPartyEdit({}) {
             body: JSON.stringify(addGuest),
         })
         .then(res => res.json())
-        const updatedGuests = dinnerParty.guests
+        const updatedGuests = [...dinnerParty.guests, addGuest]
         setDinnerParty({...dinnerParty, guests: updatedGuests})
         console.log(updatedGuests)
+    }
+
+    function handleAddFood(e) {
+        e.preventDefault();
+        const addFood = {
+        recipe_name: addFoodRecipeName,
+        recipe_link: addFoodRecipeLink,
+        ingredients: addFoodRecipeIngredients,
+        dinner_party_id: id
+        }
+        fetch(`/food_menus`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(addFood),
+        })
+        .then(res => res.json())
+        const updatedFoods = [...dinnerParty.food_menus, addFood]
+        setDinnerParty({...dinnerParty, food_menus: updatedFoods})
+        console.log(updatedFoods)
+    }
+
+    function handleAddDrink(e) {
+        e.preventDefault();
+        const addDrink = {
+        recipe_name: addDrinkRecipeName,
+        recipe_link: addDrinkRecipeLink,
+        ingredients: addDrinkRecipeIngredients,
+        dinner_party_id: id
+        }
+        fetch(`/food_menus`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(addDrink),
+        })
+        .then(res => res.json())
+        const updatedDrinks = [...dinnerParty.drink_menus, addDrink]
+        setDinnerParty({...dinnerParty, drink_menus: updatedDrinks})
+        console.log(updatedDrinks)
     }
 
       const mappedVibes = dinnerParty.vibes?.map((item, i) => {
@@ -199,27 +246,39 @@ function DinnerPartyEdit({}) {
         <>
             <form onSubmit={handleAddGuest}>
                 <input type="text"
+                    value={addName}
                     placeholder="name"
                     className="edit-dinner-party-form-input"
+                    onChange={(e) => setAddName(e.target.value)}
                     ></input>
                 <input type="text"
+                    value={addContact}
                     placeholder="contact"
                     className="edit-dinner-party-form-input"
+                    onChange={(e) => setAddContact(e.target.value)}
                     ></input>
                 <input type="text"
+                    value={addPlusOnes}
                     placeholder="plus_ones"
                     className="edit-dinner-party-form-input"
+                    onChange={(e) => setAddPlusOnes(e.target.value)}
                     ></input>
                 <input type="text"
+                    value={addDietaryRestrictions}
                     placeholder="dietary_restrictions"
                     className="edit-dinner-party-form-input"
+                    onChange={(e) => setAddDietaryRestrictions(e.target.value)}
                     ></input>
                 <input type="text"
+                    value={addAssignedDishes}
                     placeholder="assigned_dishes"
                     className="edit-dinner-party-form-input"
+                    onChange={(e) => setAddAssignedDishes(e.target.value)}
                     ></input>
                 <select placeholder="rsvp_status"
+                    onChange={(e) => setAddRSVPStatus(e.target.value)}
                     className="edit-dinner-party-form-input">
+                    <option value="">RSVP status</option>
                     <option value="yes">Yes</option>
                     <option value="yes">No</option>
                     <option value="yes">Maybe</option>
@@ -234,18 +293,24 @@ function DinnerPartyEdit({}) {
             <h3 className="edit-card-parent">{mappedFoodMenus}</h3>
             {showFoodForm ? (
                 <>
-                 <form>
+                 <form onSubmit={handleAddFood}>
                     <input type="text"
+                        value={addFoodRecipeName}
                         placeholder="recipe_name"
                         className="edit-dinner-party-form-input"
+                        onChange={(e) => setAddFoodRecipeName(e.target.value)}
                         ></input>
                     <input type="text"
+                        value={addFoodRecipeLink}
                         placeholder="recipe_link"
                         className="edit-dinner-party-form-input"
+                        onChange={(e) => setAddFoodRecipeLink(e.target.value)}
                         ></input>
                     <input type="text"
+                        value={addFoodRecipeIngredients}
                         placeholder="ingredients"
                         className="edit-dinner-party-form-input"
+                        onChange={(e) => setAddFoodRecipeIngredients(e.target.value)}
                         ></input>
                     <input type="submit" className="edit-dinner-party-form-input"></input>
                 </form>
@@ -256,18 +321,24 @@ function DinnerPartyEdit({}) {
             <h3 className="edit-card-parent">{mappedDrinkMenus}</h3>
             {showDrinkForm ? (
                 <>
-                <form className="">
+                <form onSubmit={handleAddDrink}>
                     <input type="text"
+                        value={addDrinkRecipeName}
                         placeholder="recipe_name"
                         className="edit-dinner-party-form-input"
+                        onChange={(e) => setAddDrinkRecipeName(e.target.value)}
                         ></input>
                     <input type="text"
+                        value={setAddDrinkRecipeLink}
                         placeholder="recipe_link"
                         className="edit-dinner-party-form-input"
+                        onChange={(e) => setAddDrinkRecipeLink(e.target.value)}
                         ></input>
                     <input type="text"
+                        value={setAddDrinkRecipeIngredients}
                         placeholder="ingredients"
                         className="edit-dinner-party-form-input"
+                        onChange={(e) => setAddDrinkRecipeIngredients(e.target.value)}
                         ></input>
                     <input type="submit" className="edit-dinner-party-form-input"></input>
                 </form>
