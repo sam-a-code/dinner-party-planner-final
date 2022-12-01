@@ -11,14 +11,7 @@ function NewDinnerParty({userID, currentUser}) {
     const [location, setLocation] = useState("")
     const [dinnerParty, setDinnerParty] = useState({})
     const [id, setID] = useState(userID)
-    // const [id, setID] = useState("")
     const navigate = useNavigate()
-    // const [vibes, setVibes] = useState("")
-    // const [guests, setGuests] = useState("")
-    // const [foodMenu, setFoodMenu] = useState("")
-    // const [drinkMenu, setDrinkMenu] = useState("")
-
-
 
     function handleNewDPSubmit(e) {
         e.preventDefault();

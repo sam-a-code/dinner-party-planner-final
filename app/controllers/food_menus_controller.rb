@@ -30,7 +30,7 @@ class FoodMenusController < ApplicationController
   private
 
   def food_menu_params
-    params.permit(:recipe_name, :recipe_link, :ingredients)
+    params.permit(:recipe_name, :recipe_link, :ingredients, :dinner_party_id)
   end
 
 end

@@ -34,15 +34,7 @@ function Profile({ currentUser }) {
             currentUser={currentUser}
         />
     })
-    // const dinnerPartyMiniCard = currentUser.dinner_parties.map((dinner_party) => {
-    //     return <DinnerPartyMiniCard
-    //         key={dinner_party.id}
-    //         id={dinner_party.id}
-    //         date={dinner_party.date}
-    //         location={dinner_party.location}
-    //         currentUser={currentUser}
-    //     />
-    // })
+
 
     const dinnerPartyCount = currentUser.dinner_parties.length
 
