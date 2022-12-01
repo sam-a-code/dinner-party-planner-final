@@ -30,7 +30,7 @@ class GuestsController < ApplicationController
   private
 
   def guest_params
-    params.permit(:name, :contact, :plus_ones, :dietary_restrictions, :assigned_dishes, :rsvp_status)
+    params.permit(:name, :contact, :plus_ones, :dietary_restrictions, :assigned_dishes, :rsvp_status, :dinner_party_id)
   end
 
 end

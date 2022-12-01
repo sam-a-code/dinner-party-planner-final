@@ -30,6 +30,6 @@ class VibesController < ApplicationController
   private
 
   def vibe_params
-    params.permit(:theme, :decor, :spotify_playlist, :games)
+    params.permit(:theme, :decor, :spotify_playlist, :games, :dinner_party_id)
   end
 end
