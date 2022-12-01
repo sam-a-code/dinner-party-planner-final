@@ -7,6 +7,15 @@ function DinnerPartyEdit({}) {
     const {id} = useParams();
 
     const [dinnerParty, setDinnerParty] = useState([])
+    const [showVibeForm, setShowVibeForm] = useState(false)
+    const [showGuestForm, setShowGuestForm] = useState(false)
+    const [showFoodForm, setShowFoodForm] = useState(false)
+    const [showDrinkForm, setShowDrinkForm] = useState(false)
+
+    const [addTheme, setAddTheme] = useState("")
+    const [addDecor, setAddDecor] = useState("")
+    const [addSpotifyPlaylist, setAddSpotifyPlaylist] = useState("")
+    const [addGames, setAddGames] = useState("")
 
     useEffect(() => {
         fetch(`/dinner_parties/${id}`)
@@ -46,10 +55,27 @@ function DinnerPartyEdit({}) {
         setDinnerParty({...dinnerParty, drink_menus: updatedDrinks})
     }
 
+    function handleAddVibe(e) {
+        e.preventDefault();
+        const addVibe = {
+        theme: addTheme,
+        decor: addDecor,
+        spotify_playlist: addSpotifyPlaylist,
+        games: addGames
+        }
+        fetch(`/vibes`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(addVibe),
+        })
+        .then(res => res.json())
+        // .then(newDP => setDinnerParty(addVibe))
+        console.log(addVibe)
+    }
+
 
       const mappedVibes = dinnerParty.vibes?.map((item, i) => {
         const vibeID = item.id
-        console.log(vibeID)
         return (
         <div key={i} className="edit-card">
         {item.theme? <div>Theme: {item.theme}</div> : null }
@@ -95,24 +121,124 @@ function DinnerPartyEdit({}) {
          </div>)
     })
 
-        const dpDate = dinnerParty.date
-
-
+    const dpDate = dinnerParty.date
     return (
         <div>
             <h3 className="edit-page-text">{dinnerParty.location} <br></br>{moment(dpDate).format("MMMM Do, YYYY")}</h3>
             <h3 className="edit-page-text">Vibes</h3>
             <h3 className="edit-card-parent">{mappedVibes}</h3>
-            <button className="edit-dinner-party-button">add some vibes to your party</button>
+            {showVibeForm ? (
+                <>
+                <form>
+                    <input type="text"
+                    value={addTheme}
+                    placeholder="theme"
+                    className="edit-dinner-party-form-input"
+                    onChange={(e) => setAddTheme(e.target.value)}
+                    ></input>
+                    <input type="text"
+                    value={addDecor}
+                    placeholder="decor"
+                    className="edit-dinner-party-form-input"
+                    onChange={(e) => setAddDecor(e.target.value)}
+                    ></input>
+                    <input type="text"
+                    value={addSpotifyPlaylist}
+                    placeholder="spotify_playlist"
+                    className="edit-dinner-party-form-input"
+                    onChange={(e) => setAddSpotifyPlaylist(e.target.value)}
+                    ></input>
+                    <input type="text"
+                    value={addGames}
+                    placeholder="games"
+                    className="edit-dinner-party-form-input"
+                    onChange={(e) => setAddGames(e.target.value)}
+                    ></input>
+                    <input type="submit" className="edit-dinner-party-form-input"></input>
+                </form>
+                <button className="edit-dinner-party-form-input" onClick={() => setShowVibeForm(false)}>discard</button>
+                </>) :
+                <button className="edit-dinner-party-button" onClick={() => setShowVibeForm(true)}>add some vibes to your party</button>}
             <h3 className="edit-page-text">Guests</h3>
             <h3 className="edit-card-parent">{mappedGuests}</h3>
-            <button className="edit-dinner-party-button">add to your guest list</button>
+            {showGuestForm ? (<>
+                <form>
+                    <input type="text"
+                        placeholder="name"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <input type="text"
+                        placeholder="contact"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <input type="text"
+                        placeholder="plus_ones"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <input type="text"
+                        placeholder="dietary_restrictions"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <input type="text"
+                        placeholder="assigned_dishes"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <select placeholder="rsvp_status"
+                        className="edit-dinner-party-form-input">
+                        <option value="yes">Yes</option>
+                        <option value="yes">No</option>
+                        <option value="yes">Maybe</option>
+                        <option value="yes" >Maybe that's probably a no</option>
+                        </select>
+                    <input type="submit" className="edit-dinner-party-form-input"></input>
+                </form>
+                <button className="edit-dinner-party-form-input" onClick={() => setShowGuestForm(false)}>discard</button>
+                </>) :
+                <button className="edit-dinner-party-button" onClick={() => setShowGuestForm(true)}>add to your guest list</button>}
             <h3 className="edit-page-text">Food Menus</h3>
             <h3 className="edit-card-parent">{mappedFoodMenus}</h3>
-            <button className="edit-dinner-party-button">add an option for your food menu</button>
+            {showFoodForm ? (
+                <>
+                 <form>
+                    <input type="text"
+                        placeholder="recipe_name"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <input type="text"
+                        placeholder="recipe_link"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <input type="text"
+                        placeholder="ingredients"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <input type="submit" className="edit-dinner-party-form-input"></input>
+                </form>
+                <button className="edit-dinner-party-form-input" onClick={() => setShowFoodForm(false)}>discard</button>
+                </>) :
+                <button className="edit-dinner-party-button" onClick={() => setShowFoodForm(true)}>add an option for your food menu</button>}
             <h3 className="edit-page-text">Drink Menus</h3>
             <h3 className="edit-card-parent">{mappedDrinkMenus}</h3>
-            <button className="edit-dinner-party-button">add an option for your drink menu</button>
+            {showDrinkForm ? (
+                <>
+                <form className="">
+                    <input type="text"
+                        placeholder="recipe_name"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <input type="text"
+                        placeholder="recipe_link"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <input type="text"
+                        placeholder="ingredients"
+                        className="edit-dinner-party-form-input"
+                        ></input>
+                    <input type="submit" className="edit-dinner-party-form-input"></input>
+                </form>
+                <button className="edit-dinner-party-form-input" onClick={() => setShowDrinkForm(false)}>discard</button>
+                </>) :
+                <button className="edit-dinner-party-button" onClick={() => setShowDrinkForm(true)}>add an option for your drink menu</button>}
         </div>
     )
 }
