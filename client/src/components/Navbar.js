@@ -3,7 +3,7 @@ import Signup from './Signup';
 import Login from './Login';
 import { useNavigate } from "react-router-dom"
 
-function Navbar({ currentUser }) {
+function Navbar({ currentUser, updateUser }) {
   const navigate = useNavigate();
 
     function handleLogout() {
@@ -12,7 +12,7 @@ function Navbar({ currentUser }) {
       })
       .then(res => {
         if(res.ok) {
-          navigate(`/`)
+          updateUser(false)
         }
       })
     }
