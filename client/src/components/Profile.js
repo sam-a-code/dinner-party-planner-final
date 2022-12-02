@@ -5,7 +5,12 @@ import DinnerPartyMiniCard from "./DinnerPartyMiniCard";
 function Profile({ currentUser }) {
     const [dinnerParties, setDinnerParties] = useState(currentUser.dinner_parties)
 
-    const dinnerPartyMiniCard = dinnerParties?.map((dinner_party) => {
+    // Come back and fix: need to transform date string into date format for sorting
+    const sortedDinnerParties = [...dinnerParties].sort((a, b) => (a.date > b.date))
+
+    // console.log({sortedDinnerParties})
+
+    const dinnerPartyMiniCard = sortedDinnerParties?.map((dinner_party) => {
         // let dpGuests = dinnerPartyGuests(dinner_party)
         return <DinnerPartyMiniCard
             key={dinner_party.id}

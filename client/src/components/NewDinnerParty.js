@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 function NewDinnerParty({userID, currentUser}) {
     const [errors, setErrors] = useState([])
     const [date, setDate] = useState("")
+    const [time, setTime] = useState("")
     const [location, setLocation] = useState("")
     const [dinnerParty, setDinnerParty] = useState({})
     const [id, setID] = useState(userID)
@@ -14,6 +15,7 @@ function NewDinnerParty({userID, currentUser}) {
         e.preventDefault();
         const newDP = {
             date: date,
+            time: time,
             location: location,
             user_id: id,
         }
@@ -27,6 +29,7 @@ function NewDinnerParty({userID, currentUser}) {
                 res.json()
                 .then(newDP => setDinnerParty(newDP))
                 navigate('/profile')
+                console.log(newDP)
             } else {
                 res.json().then(data => setErrors(Object.entries(data.errors)))
                 console.log(errors)
@@ -56,6 +59,15 @@ function NewDinnerParty({userID, currentUser}) {
                 name="date"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
+                />
+                <br></br>
+                <input
+                placeholder="Time"
+                className="new-dinner-party-form-input"
+                type="text"
+                name="time"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
                 />
                 <br></br>
                 <input type="submit" value="create dinner party" className="form-submit-button"

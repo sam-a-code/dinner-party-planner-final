@@ -42,7 +42,7 @@ function App() {
         <Route path="/profile" element={<Profile currentUser={currentUser}/>} />
         <Route path="/create-dinner-party" element={<NewDinnerParty userID={userID} currentUser={currentUser}/>} />
         <Route path="/explore" element={<Explore />} />
-        <Route path="/dinner-parties/:id" element={<DinnerPartyView />} />
+        <Route path="/dinner-parties/:id" element={<DinnerPartyView currentUser={currentUser} />} />
         <Route path="/dinner-parties/edit/:id" element={<DinnerPartyEdit />} />
         {/* <Route path="/dinner-parties/:id" element={<DinnerPartyView />} /> */}
         {/* <Route path="/login" element={<Login />} />
