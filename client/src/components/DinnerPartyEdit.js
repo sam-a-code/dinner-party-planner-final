@@ -92,9 +92,12 @@ function DinnerPartyEdit({}) {
             body: JSON.stringify(addVibe),
         })
         .then(res => res.json())
-        const updatedVibes = [...dinnerParty.vibes, addVibe]
-        setDinnerParty({...dinnerParty, vibes: updatedVibes})
-        console.log(updatedVibes)
+        .then((vibe) => {
+            const updatedVibes = [...dinnerParty.vibes, vibe]
+            setDinnerParty({...dinnerParty, vibes: updatedVibes})
+            console.log(updatedVibes)
+        }
+    )
     }
 
     function handleAddGuest(e) {
@@ -115,10 +118,10 @@ function DinnerPartyEdit({}) {
         })
         .then(res => {
             if (res.ok) {
-                res.json()
-                const updatedGuests = [...dinnerParty.guests, addGuest]
+                res.json().then((data) => {
+                const updatedGuests = [...dinnerParty.guests, data]
                 setDinnerParty({...dinnerParty, guests: updatedGuests})
-                console.log(updatedGuests)
+                console.log(updatedGuests)})
             }else {
                 res.json().then(data => setGuestErrors(Object.entries(data.errors)))
                 console.log(guestErrors)
@@ -141,10 +144,10 @@ function DinnerPartyEdit({}) {
         })
         .then(res => {
             if (res.ok){
-                res.json()
-                const updatedFoods = [...dinnerParty.food_menus, addFood]
+                res.json().then((data) => {
+                const updatedFoods = [...dinnerParty.food_menus, data]
                 setDinnerParty({...dinnerParty, food_menus: updatedFoods})
-                console.log(updatedFoods)
+                console.log(updatedFoods)})
             }else {
                 res.json().then(data => setFoodErrors(Object.entries(data.errors)))
                 console.log(foodErrors)
@@ -160,17 +163,17 @@ function DinnerPartyEdit({}) {
         ingredients: addDrinkRecipeIngredients,
         dinner_party_id: id
         }
-        fetch(`/food_menus`, {
+        fetch(`/drink_menus`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addDrink),
         })
         .then(res => {
             if (res.ok) {
-                res.json()
-                const updatedDrinks = [...dinnerParty.drink_menus, addDrink]
+                res.json().then((data) => {
+                const updatedDrinks = [...dinnerParty.drink_menus, data]
                 setDinnerParty({...dinnerParty, drink_menus: updatedDrinks})
-                console.log(updatedDrinks)
+                console.log(updatedDrinks)})
             }else {
                 res.json().then(data => setDrinkErrors(Object.entries(data.errors)))
                 console.log(drinkErrors)
@@ -229,7 +232,9 @@ function DinnerPartyEdit({}) {
     const dpDate = dinnerParty.date
     return (
         <div>
-            <h3 className="edit-page-text">{dinnerParty.location} <br></br>{moment(dpDate).format("MMMM Do, YYYY")}</h3>
+            <h3 className="edit-page-text">{dinnerParty.location}
+                <br></br>{moment(dpDate).format("MMMM Do, YYYY")}
+                <br></br>{dinnerParty.time}</h3>
             <h3 className="edit-page-text">Vibes</h3>
             <h3 className="edit-card-parent">{mappedVibes}</h3>
             {showVibeForm ?
@@ -304,9 +309,9 @@ function DinnerPartyEdit({}) {
                     className="edit-dinner-party-form-input">
                     <option value="">RSVP status</option>
                     <option value="yes">Yes</option>
-                    <option value="yes">No</option>
-                    <option value="yes">Maybe</option>
-                    <option value="yes" >Maybe that's probably a no</option>
+                    <option value="no">No</option>
+                    <option value="maybe">Maybe</option>
+                    <option value="maybe that's probably a no" >Maybe that's probably a no</option>
                     </select>
                 <input type="submit" className="edit-dinner-party-form-input"></input>
             </form>
@@ -355,13 +360,13 @@ function DinnerPartyEdit({}) {
                         onChange={(e) => setAddDrinkRecipeName(e.target.value)}
                         ></input>
                     <input type="text"
-                        value={setAddDrinkRecipeLink}
+                        value={addDrinkRecipeLink}
                         placeholder="recipe_link"
                         className="edit-dinner-party-form-input"
                         onChange={(e) => setAddDrinkRecipeLink(e.target.value)}
                         ></input>
                     <input type="text"
-                        value={setAddDrinkRecipeIngredients}
+                        value={addDrinkRecipeIngredients}
                         placeholder="ingredients"
                         className="edit-dinner-party-form-input"
                         onChange={(e) => setAddDrinkRecipeIngredients(e.target.value)}
