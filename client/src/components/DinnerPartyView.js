@@ -57,8 +57,8 @@ function DinnerPartyView({}) {
         return item.ingredients
     })
 
-    console.log(mappedFoodIngredients)
-    console.log(mappedDrinkIngredients)
+    // console.log(mappedFoodIngredients)
+    // console.log(mappedDrinkIngredients)
 
     const dpDate = dinnerParty.date
 
