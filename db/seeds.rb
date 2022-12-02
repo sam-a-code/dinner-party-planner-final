@@ -13,12 +13,12 @@ u3 = User.create(username: "sam3", first_name: "Sam3", last_name: "Avery3", emai
 
 puts "Seeding dinner parties"
 
-dp1 = DinnerParty.create(user_id: u1.id, date: "11-11-2022", location: "Sam 1's house" )
-dp2 = DinnerParty.create(user_id: u1.id, date: "12-12-2022", location: "Sam 1's house" )
-dp3 = DinnerParty.create(user_id: u2.id, date: "01-01-2022", location: "Sam 2's house" )
-dp4 = DinnerParty.create(user_id: u2.id, date: "02-02-2023", location: "Sam 2's house" )
-dp5 = DinnerParty.create(user_id: u3.id, date: "09-09-2022", location: "Sam 3's house" )
-dp6 = DinnerParty.create(user_id: u3.id, date: "10-10-2023", location: "Sam 3's house" )
+dp1 = DinnerParty.create(user_id: u1.id, date: "11-11-2022", location: "Sam 1's house", time: "7:30PM" )
+dp2 = DinnerParty.create(user_id: u1.id, date: "12-12-2022", location: "Sam 1's house", time: "12:30PM" )
+dp3 = DinnerParty.create(user_id: u2.id, date: "01-01-2022", location: "Sam 2's house", time: "8:30PM" )
+dp4 = DinnerParty.create(user_id: u2.id, date: "02-02-2023", location: "Sam 2's house", time: "5:00PM" )
+dp5 = DinnerParty.create(user_id: u3.id, date: "09-09-2022", location: "Sam 3's house", time: "7:00PM" )
+dp6 = DinnerParty.create(user_id: u3.id, date: "10-10-2023", location: "Sam 3's house", time: "7:30PM" )
 
 puts "Seeding drink menus"
 

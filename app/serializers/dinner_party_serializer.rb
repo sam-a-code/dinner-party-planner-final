@@ -1,5 +1,5 @@
 class DinnerPartySerializer < ActiveModel::Serializer
-  attributes :id, :date, :location
+  attributes :id, :date, :time, :location
   has_one :user
   has_many :vibes
   has_many :guests

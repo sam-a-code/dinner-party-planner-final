@@ -11,6 +11,7 @@ function Profile({ currentUser }) {
             key={dinner_party.id}
             id={dinner_party.id}
             date={dinner_party.date}
+            time={dinner_party.time}
             location={dinner_party.location}
             currentUser={currentUser}
             // dpGuests={dpGuests}

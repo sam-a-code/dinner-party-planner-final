@@ -225,6 +225,7 @@ function DinnerPartyEdit({}) {
          </div>)
     })
 
+
     const dpDate = dinnerParty.date
     return (
         <div>
