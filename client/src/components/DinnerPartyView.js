@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom"
 import moment from 'moment'
 
-function DinnerPartyView({}) {
+function DinnerPartyView({currentUser}) {
     const {id} = useParams();
     const [dinnerParty, setDinnerParty] = useState([])
     useEffect(() => {
@@ -10,7 +10,6 @@ function DinnerPartyView({}) {
           .then((res) => res.json())
           .then((dinnerParty) => setDinnerParty(dinnerParty));
       }, []);
-
 
     const mappedVibes = dinnerParty.vibes?.map((item, i) => {
         return (
@@ -57,8 +56,8 @@ function DinnerPartyView({}) {
         return item.ingredients
     })
 
-    // console.log(mappedFoodIngredients)
-    // console.log(mappedDrinkIngredients)
+    console.log(mappedFoodIngredients)
+    console.log(mappedDrinkIngredients)
 
     const dpDate = dinnerParty.date
 
