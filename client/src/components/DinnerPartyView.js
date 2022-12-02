@@ -50,21 +50,28 @@ function DinnerPartyView({}) {
          </div>)
     })
 
-    const totalGuests = dinnerParty.guests
-    const dpDate = dinnerParty.date
+    const mappedFoodIngredients = dinnerParty.food_menus?.map((item, i) => {
+        return item.ingredients
+    })
+    const mappedDrinkIngredients = dinnerParty.drink_menus?.map((item, i) => {
+        return item.ingredients
+    })
 
+    console.log(mappedFoodIngredients)
+    console.log(mappedDrinkIngredients)
+
+    const dpDate = dinnerParty.date
 
     return (
         <div className="view-card">
             <div className="view-card-white">
-        <div>id: {id}</div>
-        <h4>Main info</h4>
-        <div>{dinnerParty.location}</div>
+        <h3>{dinnerParty.location}</h3>
         <div>{moment(dpDate).format("MMMM Do, YYYY")}</div>
+        <div>{dinnerParty.time}</div>
         <h4>Vibes</h4>
         <div>{mappedVibes}</div>
         <h4>Guests</h4>
-        {totalGuests? <h4>NUMBER</h4> : null}
+        {/* {totalGuests? <h4>Guest total: </h4> : null} */}
         <div>{mappedGuests}</div>
         <h4>Food</h4>
         <div>{mappedFoodMenus}</div>

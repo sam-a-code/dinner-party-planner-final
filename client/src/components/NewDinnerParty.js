@@ -28,7 +28,7 @@ function NewDinnerParty({userID, currentUser}) {
                 .then(newDP => setDinnerParty(newDP))
                 navigate('/profile')
             } else {
-                res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+                res.json().then(data => setErrors(Object.entries(data.errors)))
                 console.log(errors)
             }
         })
@@ -37,7 +37,6 @@ function NewDinnerParty({userID, currentUser}) {
         // navigate(`/profile`)
         // console.log(newDP)
       }
-
 
     return (
         <div className="new-dinner-party-background">
@@ -62,7 +61,7 @@ function NewDinnerParty({userID, currentUser}) {
                 <input type="submit" value="create dinner party" className="form-submit-button"
                 />
             </form>
-            {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
+            {errors?errors.map(e => <div>{e}</div>):null}
         </div>
     )
 }

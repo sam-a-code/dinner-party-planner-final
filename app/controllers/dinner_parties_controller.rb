@@ -36,7 +36,7 @@ class DinnerPartiesController < ApplicationController
   private
 
   def dinner_party_params
-    params.permit(:date, :location, :user_id)
+    params.permit(:date, :location, :time, :user_id)
   end
 
 end

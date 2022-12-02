@@ -29,7 +29,7 @@ function Signup () {
                     navigate(`/`)
                 })
             } else {
-                res.json().then(json => setErrors(Object.entries(json.errors)))
+              res.json().then(data => setErrors(Object.entries(data.errors)))
             }
         })}
 
@@ -80,6 +80,7 @@ function Signup () {
          <br></br>
         <button className="signup-login-button" type="submit">Create account</button>
       </form>
+      {errors?errors.map(e => <div>{e}</div>):null}
       </div>
     );
 }

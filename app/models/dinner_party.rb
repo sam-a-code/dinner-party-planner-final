@@ -6,5 +6,6 @@ class DinnerParty < ApplicationRecord
   has_many :vibes
 
   validates :date, presence: true
+  validates :time, presence: true
   validates :location, presence: true
 end

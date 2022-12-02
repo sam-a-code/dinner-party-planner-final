@@ -30,7 +30,7 @@ function Login({ updateUser }) {
                 navigate(`/`)
             })
         }else {
-            res.json().then(data => setErrors(data.errors))
+          res.json().then(data => setErrors(Object.entries(data.errors)))
         }
     }, [])
   }
@@ -57,7 +57,7 @@ function Login({ updateUser }) {
         <button type="submit" className="signup-login-button" >Login</button>
       </form>
       <br></br>
-      {errors ? <div>{errors}</div> : null}
+      {errors?errors.map(e => <div>{e}</div>):null}
       </>
     );
   }

@@ -11,7 +11,9 @@ function DinnerPartyEdit({}) {
     const [showGuestForm, setShowGuestForm] = useState(false)
     const [showFoodForm, setShowFoodForm] = useState(false)
     const [showDrinkForm, setShowDrinkForm] = useState(false)
-    const [errors, setErrors] = useState([])
+    const [guestErrors, setGuestErrors] = useState([])
+    const [foodErrors, setFoodErrors] = useState([])
+    const [drinkErrors, setDrinkErrors] = useState([])
 
     //add vibes state
     const [addTheme, setAddTheme] = useState("")
@@ -111,10 +113,17 @@ function DinnerPartyEdit({}) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addGuest),
         })
-        .then(res => res.json())
-        const updatedGuests = [...dinnerParty.guests, addGuest]
-        setDinnerParty({...dinnerParty, guests: updatedGuests})
-        console.log(updatedGuests)
+        .then(res => {
+            if (res.ok) {
+                res.json()
+                const updatedGuests = [...dinnerParty.guests, addGuest]
+                setDinnerParty({...dinnerParty, guests: updatedGuests})
+                console.log(updatedGuests)
+            }else {
+                res.json().then(data => setGuestErrors(Object.entries(data.errors)))
+                console.log(guestErrors)
+            }
+        })
     }
 
     function handleAddFood(e) {
@@ -130,10 +139,17 @@ function DinnerPartyEdit({}) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addFood),
         })
-        .then(res => res.json())
-        const updatedFoods = [...dinnerParty.food_menus, addFood]
-        setDinnerParty({...dinnerParty, food_menus: updatedFoods})
-        console.log(updatedFoods)
+        .then(res => {
+            if (res.ok){
+                res.json()
+                const updatedFoods = [...dinnerParty.food_menus, addFood]
+                setDinnerParty({...dinnerParty, food_menus: updatedFoods})
+                console.log(updatedFoods)
+            }else {
+                res.json().then(data => setFoodErrors(Object.entries(data.errors)))
+                console.log(foodErrors)
+            }
+        })
     }
 
     function handleAddDrink(e) {
@@ -149,10 +165,17 @@ function DinnerPartyEdit({}) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addDrink),
         })
-        .then(res => res.json())
-        const updatedDrinks = [...dinnerParty.drink_menus, addDrink]
-        setDinnerParty({...dinnerParty, drink_menus: updatedDrinks})
-        console.log(updatedDrinks)
+        .then(res => {
+            if (res.ok) {
+                res.json()
+                const updatedDrinks = [...dinnerParty.drink_menus, addDrink]
+                setDinnerParty({...dinnerParty, drink_menus: updatedDrinks})
+                console.log(updatedDrinks)
+            }else {
+                res.json().then(data => setDrinkErrors(Object.entries(data.errors)))
+                console.log(drinkErrors)
+            }
+        })
     }
 
       const mappedVibes = dinnerParty.vibes?.map((item, i) => {
@@ -202,6 +225,7 @@ function DinnerPartyEdit({}) {
          </div>)
     })
 
+
     const dpDate = dinnerParty.date
     return (
         <div>
@@ -237,7 +261,7 @@ function DinnerPartyEdit({}) {
                         ></input>
                         <input type="submit" className="edit-dinner-party-form-input"></input>
                     </form>
-                    <button className="edit-dinner-party-form-input" onClick={() => setShowVibeForm(false)}>discard</button>
+                    <button className="edit-dinner-party-form-input" onClick={() => setShowVibeForm(false)}>close</button>
                     </>):
                 <button className="edit-dinner-party-button" onClick={() => setShowVibeForm(true)}>add some vibes to your party</button>}
             <h3 className="edit-page-text">Guests</h3>
@@ -286,7 +310,8 @@ function DinnerPartyEdit({}) {
                     </select>
                 <input type="submit" className="edit-dinner-party-form-input"></input>
             </form>
-            <button className="edit-dinner-party-form-input" onClick={() => setShowGuestForm(false)}>discard</button>
+            <button className="edit-dinner-party-form-input" onClick={() => setShowGuestForm(false)}>close</button>
+            {guestErrors?guestErrors.map(e => <div>{e}</div>):null}
             </>) :
                 <button className="edit-dinner-party-button" onClick={() => setShowGuestForm(true)}>add to your guest list</button>}
             <h3 className="edit-page-text">Food Menus</h3>
@@ -314,7 +339,8 @@ function DinnerPartyEdit({}) {
                         ></input>
                     <input type="submit" className="edit-dinner-party-form-input"></input>
                 </form>
-                <button className="edit-dinner-party-form-input" onClick={() => setShowFoodForm(false)}>discard</button>
+                <button className="edit-dinner-party-form-input" onClick={() => setShowFoodForm(false)}>close</button>
+                {foodErrors?foodErrors.map(e => <div>{e}</div>):null}
                 </>) :
                 <button className="edit-dinner-party-button" onClick={() => setShowFoodForm(true)}>add an option for your food menu</button>}
             <h3 className="edit-page-text">Drink Menus</h3>
@@ -342,7 +368,8 @@ function DinnerPartyEdit({}) {
                         ></input>
                     <input type="submit" className="edit-dinner-party-form-input"></input>
                 </form>
-                <button className="edit-dinner-party-form-input" onClick={() => setShowDrinkForm(false)}>discard</button>
+                <button className="edit-dinner-party-form-input" onClick={() => setShowDrinkForm(false)}>close</button>
+                {drinkErrors?drinkErrors.map(e => <div>{e}</div>):null}
                 </>) :
                 <button className="edit-dinner-party-button" onClick={() => setShowDrinkForm(true)}>add an option for your drink menu</button>}
         </div>
