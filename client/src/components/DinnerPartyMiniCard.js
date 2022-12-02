@@ -7,7 +7,7 @@ function DinnerPartyMiniCard({id, date, location, currentUser, dpGuests}) {
     return (
         <div className="card">
             <div className="card-white">
-            <p>Total guests: {dpGuests}</p>
+            {/* <p>Total guests: {dpGuests}</p> */}
         <h4>DATE: {moment(date).format("MMMM Do, YYYY")}</h4>
         {/* <h4>DATE: {date}</h4> */}
         <h4>LOCATION: {location}</h4>
