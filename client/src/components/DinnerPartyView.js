@@ -57,6 +57,14 @@ function DinnerPartyView({currentUser}) {
         return item.ingredients
     })
 
+    const mappedInvitedGuests = dinnerParty.guests?.map((item, i) => {
+        return (
+            <div></div>
+        )
+    })
+
+    console.log(mappedInvitedGuests)
+
     const dpDate = dinnerParty.date
     const prettyDate = moment(dpDate).format("MMMM Do, YYYY")
     const emailName = currentUser.first_name
@@ -71,8 +79,20 @@ function DinnerPartyView({currentUser}) {
         prettyDate: prettyDate,
     }
 
+    const inviteParams = {
+        emailName: emailName,
+        emailAddress: emailAddress,
+        prettyDate: prettyDate,
+
+    }
+
     function handleSendEmail() {
         emailjs.send('service_rryf6l2', 'template_jlgx08x', ingredientsParams, 'Qp7H41_fSqAURacWj');
+        console.log("clicked")
+    }
+
+    function handleSendInviteEmail() {
+        emailjs.send('service_rryf6l2', 'template_4a7bfzh', inviteParams, 'Qp7H41_fSqAURacWj');
         console.log("clicked")
     }
 
@@ -96,7 +116,8 @@ function DinnerPartyView({currentUser}) {
         <h4>Drinks</h4>
         <div>{mappedDrinkMenus}</div>
         </div>
-        <button className="edit-dinner-party-button" onClick={handleSendEmail}>Email yourself a grocery list </button>
+        <button className="edit-dinner-party-button" onClick={handleSendEmail}>Email yourself a grocery list</button>
+        <button className="edit-dinner-party-button" onClick={handleSendInviteEmail}>Email yourself party details to forward to your guests!</button>
         <button className="edit-dinner-party-button"><Link to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
         </div>
     )
