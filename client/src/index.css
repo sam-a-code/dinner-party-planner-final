@@ -108,6 +108,7 @@ code {
   border-radius: 5px;
   margin-top: 5px;
   font-family: 'Cabin Sketch', cursive;
+  color: black;
 }
 
 .edit-vibe-card {
@@ -117,8 +118,8 @@ code {
   min-width: 20%;
   display: block;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   padding: 30px;
   border-radius: 5px;
   /* background-image: url('https://images.unsplash.com/photo-1617298748161-f59f6096f130?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'); */
@@ -151,8 +152,8 @@ code {
   min-width: 20%;
   display: block;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   padding: 30px;
   border-radius: 5px;
   /* background-image: url('https://images.unsplash.com/photo-1496660988113-291c5f308503?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80'); */
@@ -183,8 +184,8 @@ code {
   min-width: 20%;
   display: block;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   padding: 30px;
   border-radius: 5px;
   background-image: url('https://images.unsplash.com/photo-1474440635253-cc1d8481595a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80');
@@ -213,8 +214,8 @@ code {
   min-width: 20%;
   display: block;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   padding: 30px;
   border-radius: 5px;
   background-image: url('https://images.unsplash.com/photo-1609951651556-5334e2706168?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
@@ -239,7 +240,8 @@ code {
 
 
 .edit-card-parent {
-  display: flex
+  display: flex;
+  justify-content: space-around;
 }
 
 .edit-page-text {
