@@ -97,18 +97,35 @@ code {
 }
 
 .view-card {
-  max-width: 300px;
-  padding-right: 12%;
-  padding-left: 12%;
+  max-width: 500px;
+  padding-right: 18%;
+  padding-left: 18%;
   background-image: url('https://images.unsplash.com/photo-1612634092815-511d2f4c9541?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+  background-size: cover;
+  background-position: center;
   display: block;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
   margin-top: 5px;
-  font-family: 'Cabin Sketch', cursive;
   color: black;
+}
+
+.view-card-titles {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 24px;
+}
+.view-card-subtitles {
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.view-card-headers {
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 2px;
 }
 
 .edit-vibe-card {

@@ -34,6 +34,7 @@ function DinnerPartyView({currentUser}) {
             {item.dietary_restrictions? <div>Dietary Restrictions: {item.dietary_restrictions}</div> : null}
             {item.assigned_dishes? <div>Assigned Dishes: {item.assigned_dishes}</div> : null}
             {item.rsvp_status? <div>RSVP Status: {item.rsvp_status}</div> : null}
+            <br></br>
          </div>)
     })
 
@@ -112,21 +113,22 @@ function DinnerPartyView({currentUser}) {
     return (
         <div className="view-card">
             <div className="view-card-white">
-                <h3>{dinnerParty.location}</h3>
-                <h3>{moment(dpDate).format("MMMM Do, YYYY")} at {dinnerParty.time}</h3>
-                <h4>Vibes</h4>
-                    <div>{mappedVibes}</div>
-                <h4>Guests</h4>
+                <h3 className="view-card-titles">{moment(dpDate).format("MMMM Do, YYYY")} at {dinnerParty.time}</h3>
+                <h3 className="view-card-subtitles">{dinnerParty.location}</h3>
+                <h4 className="view-card-headers">Vibes</h4>
+                    <div className="card-parent">{mappedVibes}</div>
+                <h4 className="view-card-headers">Guests</h4>
                     {/* {totalGuests? <h4>Guest total: </h4> : null} */}
-                    <div>{mappedGuests}</div>
-                <h4>Food</h4>
-                    <div>{mappedFoodMenus}</div>
-                <h4>Drinks</h4>
-                <div>{mappedDrinkMenus}</div>
+                    <div className="card-parent">{mappedGuests}</div>
+                <h4 className="view-card-headers">Food</h4>
+                    <div className="card-parent">{mappedFoodMenus}</div>
+                <h4 className="view-card-headers">Drinks</h4>
+                <div className="card-parent">{mappedDrinkMenus}</div>
             </div>
+            <button className="edit-dinner-party-button"><Link to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
+            <br></br>
             <button className="edit-dinner-party-button" onClick={handleSendEmail}>Email yourself a grocery list</button>
             <button className="edit-dinner-party-button" onClick={handleSendInviteEmail}>Email yourself party details to forward to your guests!</button>
-            <button className="edit-dinner-party-button"><Link to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
         </div>
     )
 }
