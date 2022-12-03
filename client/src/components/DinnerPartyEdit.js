@@ -6,6 +6,7 @@ import moment from 'moment'
 function DinnerPartyEdit({}) {
     const {id} = useParams();
 
+    //state for viewing forms, setting dinnerParty, and error messages
     const [dinnerParty, setDinnerParty] = useState([])
     const [showVibeForm, setShowVibeForm] = useState(false)
     const [showGuestForm, setShowGuestForm] = useState(false)
@@ -39,12 +40,14 @@ function DinnerPartyEdit({}) {
     const [addDrinkRecipeLink, setAddDrinkRecipeLink] = useState("")
     const [addDrinkRecipeIngredients, setAddDrinkRecipeIngredients] = useState("")
 
+    //set dinnerParty
     useEffect(() => {
         fetch(`/dinner_parties/${id}`)
           .then((res) => res.json())
           .then((dinnerParty) => setDinnerParty(dinnerParty));
       }, []);
 
+    //delete functions
     function handleVibesDelete(vibeID) {
         fetch(`/vibes/${vibeID}`, {
             method: "DELETE",
@@ -77,6 +80,7 @@ function DinnerPartyEdit({}) {
         setDinnerParty({...dinnerParty, drink_menus: updatedDrinks})
     }
 
+    //add functions
     function handleAddVibe(e) {
         e.preventDefault();
         const addVibe = {
@@ -92,10 +96,12 @@ function DinnerPartyEdit({}) {
             body: JSON.stringify(addVibe),
         })
         .then(res => res.json())
-        const updatedVibes = [...dinnerParty.vibes, addVibe]
-        setDinnerParty({...dinnerParty, vibes: updatedVibes})
-        console.log(updatedVibes)
-    }
+        .then((vibe) => {
+            const updatedVibes = [...dinnerParty.vibes, vibe]
+            setDinnerParty({...dinnerParty, vibes: updatedVibes})
+            console.log(updatedVibes)
+        }
+    )}
 
     function handleAddGuest(e) {
         e.preventDefault();
@@ -115,10 +121,10 @@ function DinnerPartyEdit({}) {
         })
         .then(res => {
             if (res.ok) {
-                res.json()
-                const updatedGuests = [...dinnerParty.guests, addGuest]
+                res.json().then((data) => {
+                const updatedGuests = [...dinnerParty.guests, data]
                 setDinnerParty({...dinnerParty, guests: updatedGuests})
-                console.log(updatedGuests)
+                console.log(updatedGuests)})
             }else {
                 res.json().then(data => setGuestErrors(Object.entries(data.errors)))
                 console.log(guestErrors)
@@ -141,10 +147,10 @@ function DinnerPartyEdit({}) {
         })
         .then(res => {
             if (res.ok){
-                res.json()
-                const updatedFoods = [...dinnerParty.food_menus, addFood]
+                res.json().then((data) => {
+                const updatedFoods = [...dinnerParty.food_menus, data]
                 setDinnerParty({...dinnerParty, food_menus: updatedFoods})
-                console.log(updatedFoods)
+                console.log(updatedFoods)})
             }else {
                 res.json().then(data => setFoodErrors(Object.entries(data.errors)))
                 console.log(foodErrors)
@@ -160,17 +166,17 @@ function DinnerPartyEdit({}) {
         ingredients: addDrinkRecipeIngredients,
         dinner_party_id: id
         }
-        fetch(`/food_menus`, {
+        fetch(`/drink_menus`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(addDrink),
         })
         .then(res => {
             if (res.ok) {
-                res.json()
-                const updatedDrinks = [...dinnerParty.drink_menus, addDrink]
+                res.json().then((data) => {
+                const updatedDrinks = [...dinnerParty.drink_menus, data]
                 setDinnerParty({...dinnerParty, drink_menus: updatedDrinks})
-                console.log(updatedDrinks)
+                console.log(updatedDrinks)})
             }else {
                 res.json().then(data => setDrinkErrors(Object.entries(data.errors)))
                 console.log(drinkErrors)
@@ -178,14 +184,15 @@ function DinnerPartyEdit({}) {
         })
     }
 
-      const mappedVibes = dinnerParty.vibes?.map((item, i) => {
+    //mapping each child (vibes, guests, food, drinks)
+    const mappedVibes = dinnerParty.vibes?.map((item, i) => {
         const vibeID = item.id
         return (
-        <div key={i} className="edit-card">
-        {item.theme? <div>Theme: {item.theme}</div> : null }
-        {item.decor? <div>Decor: {item.decor}</div> : null}
-        {item.spotify_playlist? <a href={item.spotify_playlist}>Spotify playlist</a> : null}
-        {item.games? <div>Games: {item.games}</div> : null}
+        <div key={i} className="edit-vibe-card">
+        {item.theme? <div className="edit-vibe-card-text">Theme: {item.theme}</div> : null }
+        {item.decor? <div className="edit-vibe-card-text">Decor: {item.decor}</div> : null}
+        {item.spotify_playlist? <a className="edit-vibe-card-text" href={item.spotify_playlist}>Spotify playlist</a> : null}
+        {item.games? <div className="edit-vibe-card-text">Games: {item.games}</div> : null}
         <br></br>
         <button onClick={() => handleVibesDelete(vibeID)}>x</button>
          </div>)
@@ -194,13 +201,13 @@ function DinnerPartyEdit({}) {
     const mappedGuests = dinnerParty.guests?.map((item, i) => {
         const guestID = item.id
         return (
-        <div key={i} className="edit-card">
-        {item.name? <div>Name: {item.name}</div> : null }
-        {item.contact? <div>Contact: {item.contact}</div> : null}
-        {item.plus_ones? <div>Plus ones: {item.plus_ones}</div> : null}
-        {item.dietary_restrictions? <div>Dietary Restrictions: {item.dietary_restrictions}</div> : null}
-        {item.assigned_dishes? <div>Assigned Dishes: {item.assigned_dishes}</div> : null}
-        {item.rsvp_status? <div>RSVP Status: {item.rsvp_status}</div> : null}
+        <div key={i} className="edit-guest-card">
+        {item.name? <div className="edit-guest-card-text">Name: {item.name}</div> : null }
+        {item.contact? <div className="edit-guest-card-text">Contact: {item.contact}</div> : null}
+        {item.plus_ones? <div className="edit-guest-card-text">Plus ones: {item.plus_ones}</div> : null}
+        {item.dietary_restrictions? <div className="edit-guest-card-text">Dietary Restrictions: {item.dietary_restrictions}</div> : null}
+        {item.assigned_dishes? <div className="edit-guest-card-text">Assigned Dishes: {item.assigned_dishes}</div> : null}
+        {item.rsvp_status? <div className="edit-guest-card-text">RSVP Status: {item.rsvp_status}</div> : null}
         <button onClick={() => handleGuestDelete(guestID)}>x</button>
          </div>)
     })
@@ -208,9 +215,9 @@ function DinnerPartyEdit({}) {
     const mappedFoodMenus = dinnerParty.food_menus?.map((item, i) => {
         const foodID = item.id
         return (
-        <div key={i} className="edit-card">
-        {item.recipe_name? <a href={item.recipe_link}>{item.recipe_name}</a> : null }
-        {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
+        <div key={i} className="edit-food-card">
+        {item.recipe_name? <a className="edit-food-card-text" href={item.recipe_link}>{item.recipe_name}</a> : null }
+        {item.ingredients? <div className="edit-food-card-text">Ingredients: {item.ingredients}</div> : null}
         <button onClick={() => handleFoodDelete(foodID)}>x</button>
          </div>)
     })
@@ -218,22 +225,25 @@ function DinnerPartyEdit({}) {
     const mappedDrinkMenus = dinnerParty.drink_menus?.map((item, i) => {
         const drinkID = item.id
         return (
-        <div key={i} className="edit-card">
-        {item.recipe_name? <a href={item.recipe_link}>{item.recipe_name}</a> : null }
-        {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
+        <div key={i} className="edit-drink-card">
+        {item.recipe_name? <a className="edit-drink-card-text" href={item.recipe_link}>{item.recipe_name}</a> : null }
+        {item.ingredients? <div className="edit-drink-card-text">Ingredients: {item.ingredients}</div> : null}
         <button onClick={() => handleDrinkDelete(drinkID)}>x</button>
          </div>)
     })
 
-
+    // rendering components
     const dpDate = dinnerParty.date
     return (
         <div>
-            <h3 className="edit-page-text">{dinnerParty.location} <br></br>{moment(dpDate).format("MMMM Do, YYYY")}</h3>
+            <div className="edit-parent-div">
+            <h3 className="edit-page-text">
+                {dinnerParty.location}<br></br>
+                {moment(dpDate).format("MMMM Do, YYYY")}<br></br>
+                {dinnerParty.time}</h3>
             <h3 className="edit-page-text">Vibes</h3>
-            <h3 className="edit-card-parent">{mappedVibes}</h3>
-            {showVibeForm ?
-                (  <>
+                <h3 className="edit-card-parent">{mappedVibes}</h3>
+                {showVibeForm ?(<>
                     <form onSubmit={handleAddVibe}>
                         <input type="text"
                         value={addTheme}
@@ -261,117 +271,113 @@ function DinnerPartyEdit({}) {
                         ></input>
                         <input type="submit" className="edit-dinner-party-form-input"></input>
                     </form>
-                    <button className="edit-dinner-party-form-input" onClick={() => setShowVibeForm(false)}>close</button>
-                    </>):
+                <button className="edit-dinner-party-form-input" onClick={() => setShowVibeForm(false)}>close</button> </>) :
                 <button className="edit-dinner-party-button" onClick={() => setShowVibeForm(true)}>add some vibes to your party</button>}
             <h3 className="edit-page-text">Guests</h3>
-            <h3 className="edit-card-parent">{mappedGuests}</h3>
-            {showGuestForm ? (
-        <>
-            <form onSubmit={handleAddGuest}>
-                <input type="text"
-                    value={addName}
-                    placeholder="name"
-                    className="edit-dinner-party-form-input"
-                    onChange={(e) => setAddName(e.target.value)}
-                    ></input>
-                <input type="text"
-                    value={addContact}
-                    placeholder="contact"
-                    className="edit-dinner-party-form-input"
-                    onChange={(e) => setAddContact(e.target.value)}
-                    ></input>
-                <input type="text"
-                    value={addPlusOnes}
-                    placeholder="plus_ones"
-                    className="edit-dinner-party-form-input"
-                    onChange={(e) => setAddPlusOnes(e.target.value)}
-                    ></input>
-                <input type="text"
-                    value={addDietaryRestrictions}
-                    placeholder="dietary_restrictions"
-                    className="edit-dinner-party-form-input"
-                    onChange={(e) => setAddDietaryRestrictions(e.target.value)}
-                    ></input>
-                <input type="text"
-                    value={addAssignedDishes}
-                    placeholder="assigned_dishes"
-                    className="edit-dinner-party-form-input"
-                    onChange={(e) => setAddAssignedDishes(e.target.value)}
-                    ></input>
-                <select placeholder="rsvp_status"
-                    onChange={(e) => setAddRSVPStatus(e.target.value)}
-                    className="edit-dinner-party-form-input">
-                    <option value="">RSVP status</option>
-                    <option value="yes">Yes</option>
-                    <option value="yes">No</option>
-                    <option value="yes">Maybe</option>
-                    <option value="yes" >Maybe that's probably a no</option>
-                    </select>
-                <input type="submit" className="edit-dinner-party-form-input"></input>
-            </form>
-            <button className="edit-dinner-party-form-input" onClick={() => setShowGuestForm(false)}>close</button>
-            {guestErrors?guestErrors.map(e => <div>{e}</div>):null}
-            </>) :
+                <h3 className="edit-card-parent">{mappedGuests}</h3>
+                {showGuestForm ? (<>
+                    <form onSubmit={handleAddGuest}>
+                        <input type="text"
+                            value={addName}
+                            placeholder="name"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddName(e.target.value)}
+                            ></input>
+                        <input type="text"
+                            value={addContact}
+                            placeholder="contact"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddContact(e.target.value)}
+                            ></input>
+                        <input type="text"
+                            value={addPlusOnes}
+                            placeholder="plus_ones"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddPlusOnes(e.target.value)}
+                            ></input>
+                        <input type="text"
+                            value={addDietaryRestrictions}
+                            placeholder="dietary_restrictions"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddDietaryRestrictions(e.target.value)}
+                            ></input>
+                        <input type="text"
+                            value={addAssignedDishes}
+                            placeholder="assigned_dishes"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddAssignedDishes(e.target.value)}
+                            ></input>
+                        <select placeholder="rsvp_status"
+                            onChange={(e) => setAddRSVPStatus(e.target.value)}
+                            className="edit-dinner-party-form-input">
+                            <option value="">RSVP status</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                            <option value="maybe">Maybe</option>
+                            <option value="maybe that's probably a no" >Maybe that's probably a no</option>
+                            </select>
+                        <input type="submit" className="edit-dinner-party-form-input"></input>
+                    </form>
+                <button className="edit-dinner-party-form-input" onClick={() => setShowGuestForm(false)}>close</button>
+                {guestErrors?guestErrors.map(e => <div>{e}</div>):null} </>) :
                 <button className="edit-dinner-party-button" onClick={() => setShowGuestForm(true)}>add to your guest list</button>}
             <h3 className="edit-page-text">Food Menus</h3>
-            <h3 className="edit-card-parent">{mappedFoodMenus}</h3>
-            {showFoodForm ? (
-                <>
-                 <form onSubmit={handleAddFood}>
-                    <input type="text"
-                        value={addFoodRecipeName}
-                        placeholder="recipe_name"
-                        className="edit-dinner-party-form-input"
-                        onChange={(e) => setAddFoodRecipeName(e.target.value)}
-                        ></input>
-                    <input type="text"
-                        value={addFoodRecipeLink}
-                        placeholder="recipe_link"
-                        className="edit-dinner-party-form-input"
-                        onChange={(e) => setAddFoodRecipeLink(e.target.value)}
-                        ></input>
-                    <input type="text"
-                        value={addFoodRecipeIngredients}
-                        placeholder="ingredients"
-                        className="edit-dinner-party-form-input"
-                        onChange={(e) => setAddFoodRecipeIngredients(e.target.value)}
-                        ></input>
-                    <input type="submit" className="edit-dinner-party-form-input"></input>
-                </form>
+                <h3 className="edit-card-parent">{mappedFoodMenus}</h3>
+                {showFoodForm ? (<>
+                    <form onSubmit={handleAddFood}>
+                        <input type="text"
+                            value={addFoodRecipeName}
+                            placeholder="recipe_name"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddFoodRecipeName(e.target.value)}
+                            ></input>
+                        <input type="text"
+                            value={addFoodRecipeLink}
+                            placeholder="recipe_link"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddFoodRecipeLink(e.target.value)}
+                            ></input>
+                        <input type="text"
+                            value={addFoodRecipeIngredients}
+                            placeholder="ingredients"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddFoodRecipeIngredients(e.target.value)}
+                            ></input>
+                        <input type="submit" className="edit-dinner-party-form-input"></input>
+                    </form>
                 <button className="edit-dinner-party-form-input" onClick={() => setShowFoodForm(false)}>close</button>
-                {foodErrors?foodErrors.map(e => <div>{e}</div>):null}
-                </>) :
+                {foodErrors?foodErrors.map(e => <div>{e}</div>):null} </>) :
                 <button className="edit-dinner-party-button" onClick={() => setShowFoodForm(true)}>add an option for your food menu</button>}
             <h3 className="edit-page-text">Drink Menus</h3>
-            <h3 className="edit-card-parent">{mappedDrinkMenus}</h3>
-            {showDrinkForm ? (
-                <>
-                <form onSubmit={handleAddDrink}>
-                    <input type="text"
-                        value={addDrinkRecipeName}
-                        placeholder="recipe_name"
-                        className="edit-dinner-party-form-input"
-                        onChange={(e) => setAddDrinkRecipeName(e.target.value)}
-                        ></input>
-                    <input type="text"
-                        value={setAddDrinkRecipeLink}
-                        placeholder="recipe_link"
-                        className="edit-dinner-party-form-input"
-                        onChange={(e) => setAddDrinkRecipeLink(e.target.value)}
-                        ></input>
-                    <input type="text"
-                        value={setAddDrinkRecipeIngredients}
-                        placeholder="ingredients"
-                        className="edit-dinner-party-form-input"
-                        onChange={(e) => setAddDrinkRecipeIngredients(e.target.value)}
-                        ></input>
-                    <input type="submit" className="edit-dinner-party-form-input"></input>
-                </form>
+                <h3 className="edit-card-parent">{mappedDrinkMenus}</h3>
+                {showDrinkForm ? (<>
+                    <form onSubmit={handleAddDrink}>
+                        <input type="text"
+                            value={addDrinkRecipeName}
+                            placeholder="recipe_name"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddDrinkRecipeName(e.target.value)}
+                            ></input>
+                        <input type="text"
+                            value={addDrinkRecipeLink}
+                            placeholder="recipe_link"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddDrinkRecipeLink(e.target.value)}
+                            ></input>
+                        <input type="text"
+                            value={addDrinkRecipeIngredients}
+                            placeholder="ingredients"
+                            className="edit-dinner-party-form-input"
+                            onChange={(e) => setAddDrinkRecipeIngredients(e.target.value)}
+                            ></input>
+                        <input type="submit" className="edit-dinner-party-form-input"></input>
+                    </form>
                 <button className="edit-dinner-party-form-input" onClick={() => setShowDrinkForm(false)}>close</button>
-                {drinkErrors?drinkErrors.map(e => <div>{e}</div>):null}
-                </>) :
+                {drinkErrors?drinkErrors.map(e => <div>{e}</div>):null} </>) :
                 <button className="edit-dinner-party-button" onClick={() => setShowDrinkForm(true)}>add an option for your drink menu</button>}
+            <br></br>
+                <button className="edit-dinner-party-button"><Link to={`/dinner-parties/${id}`}>Return to view</Link></button>
+            </div>
         </div>
     )
 }

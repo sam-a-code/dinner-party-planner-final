@@ -70,7 +70,7 @@ function NewDinnerParty({userID, currentUser}) {
                 onChange={(e) => setTime(e.target.value)}
                 />
                 <br></br>
-                <input type="submit" value="create dinner party" className="form-submit-button"
+                <input type="submit" value="create dinner party" className="new-dinner-party-submit-button"
                 />
             </form>
             {errors?errors.map(e => <div>{e}</div>):null}

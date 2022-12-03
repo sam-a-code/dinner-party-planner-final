@@ -2,15 +2,23 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom"
 import DinnerPartyMiniCard from "./DinnerPartyMiniCard";
 
-function Profile({ currentUser }) {
-    const [dinnerParties, setDinnerParties] = useState(currentUser.dinner_parties)
+function Profile({ currentUser, dinnerParties, setDinnerParties }) {
+    console.log(dinnerParties)
+
+
 
     // Come back and fix: need to transform date string into date format for sorting
-    const sortedDinnerParties = [...dinnerParties].sort((a, b) => (a.date > b.date))
+    // const sortedDinnerParties = dinnerParties && [...dinnerParties].sort((a, b) => (a.date > b.date))
 
     // console.log({sortedDinnerParties})
 
-    const dinnerPartyMiniCard = sortedDinnerParties?.map((dinner_party) => {
+    useEffect(() => {
+        fetch(`/dinner_parties`)
+          .then((res) => res.json())
+          .then((data) => setDinnerParties(data));
+      }, []);
+
+    const dinnerPartyMiniCard = dinnerParties?.map((dinner_party) => {
         // let dpGuests = dinnerPartyGuests(dinner_party)
         return <DinnerPartyMiniCard
             key={dinner_party.id}
@@ -24,17 +32,19 @@ function Profile({ currentUser }) {
     })
 
     //dinner party math
-    const dinnerPartyCount = dinnerParties.length
+    const dinnerPartyCount = dinnerParties?.length
 
     return (
         <>
         <div className="profile-text">
-        <h1>Hi, {currentUser.first_name}</h1>
+        <h1>Hi, {currentUser.first_name}!</h1>
         <h2>You have had {dinnerPartyCount} dinner parties. </h2>
         <h4>View your previous dinner parties. Click to expand and see additional details!</h4>
         <div className="card-parent">{dinnerPartyMiniCard}</div>
-        </div>
+        <div className="create-dp-button-parent">
         <button className="create-dinner-party-button"><Link to={`/create-dinner-party`}>Create a new dinner party</Link></button>
+        </div>
+        </div>
         </>
     )
 }

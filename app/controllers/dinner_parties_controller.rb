@@ -1,7 +1,7 @@
 class DinnerPartiesController < ApplicationController
 
   def index
-    dinner_parties = DinnerParty.all
+    dinner_parties = DinnerParty.where(user_id: current_user.id)
     render json: dinner_parties, status: :ok
   end
 

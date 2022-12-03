@@ -14,6 +14,8 @@ import DinnerPartyEdit from './DinnerPartyEdit'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
+  const [dinnerParties, setDinnerParties] = useState(currentUser.dinner_parties)
+
 
   useEffect(() => {
     fetch('/authorized_user')
@@ -39,8 +41,8 @@ function App() {
       <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile currentUser={currentUser}/>} />
-        <Route path="/create-dinner-party" element={<NewDinnerParty userID={userID} currentUser={currentUser}/>} />
+        <Route path="/profile" element={<Profile currentUser={currentUser} dinnerParties={dinnerParties} setDinnerParties={setDinnerParties}/>} />
+        <Route path="/create-dinner-party" element={<NewDinnerParty userID={userID} currentUser={currentUser} dinnerParties={dinnerParties} setDinnerParties={setDinnerParties}/>} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/dinner-parties/:id" element={<DinnerPartyView currentUser={currentUser} />} />
         <Route path="/dinner-parties/edit/:id" element={<DinnerPartyEdit />} />
