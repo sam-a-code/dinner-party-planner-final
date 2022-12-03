@@ -239,8 +239,7 @@ function DinnerPartyEdit({}) {
             <div className="edit-parent-div">
             <h3 className="edit-page-text">
                 {dinnerParty.location}<br></br>
-                {moment(dpDate).format("MMMM Do, YYYY")}<br></br>
-                {dinnerParty.time}</h3>
+                {moment(dpDate).format("MMMM Do, YYYY")} at {dinnerParty.time}</h3>
             <h3 className="edit-page-text">Vibes</h3>
                 <h3 className="edit-card-parent">{mappedVibes}</h3>
                 {showVibeForm ?(<>

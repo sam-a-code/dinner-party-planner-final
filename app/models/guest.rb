@@ -3,5 +3,6 @@ class Guest < ApplicationRecord
 
   validates :name, presence: true
   validates :rsvp_status, presence: true
+  validates :plus_ones, numericality: true 
 
 end

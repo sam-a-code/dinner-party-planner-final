@@ -113,8 +113,7 @@ function DinnerPartyView({currentUser}) {
         <div className="view-card">
             <div className="view-card-white">
                 <h3>{dinnerParty.location}</h3>
-                <h3>{moment(dpDate).format("MMMM Do, YYYY")}</h3>
-                <h3>{dinnerParty.time}</h3>
+                <h3>{moment(dpDate).format("MMMM Do, YYYY")} at {dinnerParty.time}</h3>
                 <h4>Vibes</h4>
                     <div>{mappedVibes}</div>
                 <h4>Guests</h4>
