@@ -5,7 +5,7 @@ import moment from 'moment';
 
 function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests}) {
     return (
-        <div className="card">
+        <div className="mini-card">
             <div className="card-white">
             {/* <p>Total guests: {dpGuests}</p> */}
         <h4>DATE: {moment(date).format("MMMM Do, YYYY")}</h4>

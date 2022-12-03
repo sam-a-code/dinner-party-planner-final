@@ -62,6 +62,15 @@ code {
   background-image: url('https://images.unsplash.com/photo-1612634092815-511d2f4c9541?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
 }
 
+.mini-card {
+  max-width: 350px;
+  border-radius: 8px;
+  margin-bottom: 3%;
+  padding: 5%;
+  text-align: center;
+  background-image: url('https://images.unsplash.com/photo-1612634092815-511d2f4c9541?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+}
+
 .view-card {
   max-width: 300px;
   padding-right: 12%;
@@ -75,16 +84,130 @@ code {
   margin-top: 5px;
 }
 
-.edit-card {
+.edit-vibe-card {
   background-color: white;
   max-width: 30%;
   display: block;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  padding: 20px;
+  padding: 30px;
   border-radius: 5px;
+  /* background-image: url('https://images.unsplash.com/photo-1617298748161-f59f6096f130?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'); */
+  /* background-image: url('https://images.unsplash.com/photo-1512389055488-8d82cb26ba6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=683&q=80'); */
+  /* background-image: url('https://images.unsplash.com/photo-1559251606-c623743a6d76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); */
+  background-image: url('https://images.unsplash.com/photo-1608048608029-99c772d199ed?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80');
+  background-size: cover;
+  background-position: center;
 }
+
+.edit-vibe-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0)
+}
+
+.edit-vibe-card-text {
+  background-color: rgb(255, 255, 255, .5);
+  border-radius: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: black;
+}
+.edit-vibe-card-text:hover {
+  background-color: rgb(255, 255, 255);
+
+}
+.edit-guest-card {
+  background-color: white;
+  max-width: 30%;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border-radius: 5px;
+  /* background-image: url('https://images.unsplash.com/photo-1496660988113-291c5f308503?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80'); */
+  background-image: url('https://images.unsplash.com/photo-1512389055488-8d82cb26ba6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=683&q=80');
+  /* background-image: url('https://images.unsplash.com/photo-1516617206694-919efe54e80a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=576&q=80'); */
+  background-size: cover;
+  background-position: center;
+}
+
+.edit-guest-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0)
+}
+
+.edit-guest-card-text {
+  background-color: rgb(255, 255, 255, .5);
+  border-radius: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: black;
+}
+.edit-guest-card-text:hover {
+  background-color: rgb(255, 255, 255);
+
+}
+
+.edit-food-card {
+  background-color: white;
+  max-width: 30%;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border-radius: 5px;
+  background-image: url('https://images.unsplash.com/photo-1474440635253-cc1d8481595a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.edit-food-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0)
+}
+
+.edit-food-card-text {
+  background-color: rgb(255, 255, 255, .5);
+  border-radius: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: black;
+}
+.edit-food-card-text:hover {
+  background-color: rgb(255, 255, 255);
+
+}
+
+
+.edit-drink-card {
+  background-color: white;
+  max-width: 30%;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  border-radius: 5px;
+  background-image: url('https://images.unsplash.com/photo-1609951651556-5334e2706168?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+  background-size: cover;
+  background-position: center;
+}
+
+.edit-drink-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0)
+}
+
+.edit-drink-card-text {
+  background-color: rgb(255, 255, 255, .5);
+  border-radius: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+  color: black;
+}
+.edit-drink-card-text:hover {
+  background-color: rgb(255, 255, 255);
+}
+
 
 .edit-card-parent {
   display: flex
@@ -96,15 +219,13 @@ code {
 }
 
 .card-white {
-  background-color: white;
-  opacity: .8;
+  background-color: rgb(255, 255, 255, .5);
   padding: 5%;
   border-radius: 5px;
 }
 
 .view-card-white {
-  background-color: white;
-  opacity: .8;
+  background-color: rgb(255, 255, 255, .5);
   padding: 5%;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -201,7 +322,7 @@ code {
   text-transform: lowercase;
 }
 
-.form-submit-button {
+.new-dinner-party-submit-button {
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5px 10px;
@@ -216,12 +337,10 @@ code {
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5px 10px;
-  /* margin-top: 10px;
-  margin-bottom: 10px; */
   margin: 10px 60px;
   font-family: 'Klee One';
   text-transform: lowercase;
-  text-align: center;
+  color: black;
 }
 
 .create-dinner-party-button {
@@ -233,6 +352,9 @@ code {
   margin-bottom: 5px;
   font-family: 'Klee One';
   text-transform: lowercase;
+}
+
+.create-dp-button-parent {
   text-align: center;
 }
 
@@ -240,11 +362,13 @@ code {
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5px 10px;
-  margin-right: 45%;
-  margin-left: 45%;
   margin-bottom: 10px;
   font-family: 'Klee One';
   text-transform: lowercase;
+  text-align: center;
+}
+
+.edit-parent-div {
   text-align: center;
 }
 
@@ -279,8 +403,13 @@ code {
 /* 3. rustic yellow background: https://images.unsplash.com/photo-1487147264018-f937fba0c817?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80 */
 /* 4. brunch spread: https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80 */
 /* 5. sparkle stars on gray background: https://images.unsplash.com/photo-1512389055488-8d82cb26ba6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=683&q=80 */
-/* 6. potatoes and shallots on gray wood: https://images.unsplash.com/photo-1474440635253-cc1d8481595a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80 */
+/* USED 6. potatoes and shallots on gray wood: https://images.unsplash.com/photo-1474440635253-cc1d8481595a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80 */
 /* 7. mise en plase lemon and herbs: https://images.unsplash.com/photo-1483137140003-ae073b395549?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80 */
 /* 8. flowers background: https://images.unsplash.com/photo-1527904219733-fddc74937915?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80 */
 /* 9. flowers and tiles: https://images.unsplash.com/photo-1490606920905-635add8bdad2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80 */
 /* 10. flowers outside in jar: https://images.unsplash.com/photo-1479064312651-24524fb55c0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80 */
+/* 11. other blue flower: https://images.unsplash.com/photo-1471899236350-e3016bf1e69e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80 */
+/* 12. herb bouquet: https://images.unsplash.com/photo-1517135399940-2855f5be7c4b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8M3wxODExMTU2fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60 */
+/* 13. lil white flowers: https://images.unsplash.com/photo-1519461343300-0d914c231ad4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80 */
+/* 14. girls night flowy pink: https://images.unsplash.com/photo-1559251606-c623743a6d76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80 */
+/* 15. flower image lay: https://images.unsplash.com/photo-1542461927-dd68c85adc56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80 */

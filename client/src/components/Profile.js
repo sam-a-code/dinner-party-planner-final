@@ -41,8 +41,10 @@ function Profile({ currentUser, dinnerParties, setDinnerParties }) {
         <h2>You have had {dinnerPartyCount} dinner parties. </h2>
         <h4>View your previous dinner parties. Click to expand and see additional details!</h4>
         <div className="card-parent">{dinnerPartyMiniCard}</div>
-        </div>
+        <div className="create-dp-button-parent">
         <button className="create-dinner-party-button"><Link to={`/create-dinner-party`}>Create a new dinner party</Link></button>
+        </div>
+        </div>
         </>
     )
 }
