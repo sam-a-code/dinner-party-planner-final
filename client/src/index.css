@@ -47,7 +47,7 @@ code {
   margin-left: 5%;
   text-decoration: none;
   color: black;
-  text-transform: lowercase
+  text-transform: lowercase;
 }
 
 .navbar-parent {
@@ -68,7 +68,14 @@ code {
   margin-bottom: 3%;
   padding: 5%;
   text-align: center;
-  background-image: url('https://images.unsplash.com/photo-1612634092815-511d2f4c9541?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+  background-size: cover;
+  background-position: center;
+  /* background-image: url('https://images.unsplash.com/photo-1542461927-dd68c85adc56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'); */
+  /* background-image: url('https://images.unsplash.com/photo-1479064312651-24524fb55c0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'); */
+  /* background-image: url('https://images.unsplash.com/photo-1519461343300-0d914c231ad4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); */
+  /* background-image: url('https://images.unsplash.com/photo-1527904219733-fddc74937915?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'); */
+  background-image: url('https://images.unsplash.com/photo-1490606920905-635add8bdad2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+  /* background-image: url('https://images.unsplash.com/photo-1483137140003-ae073b395549?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'); */
 }
 
 .view-card {
@@ -220,8 +227,9 @@ code {
 
 .card-white {
   background-color: rgb(255, 255, 255, .5);
-  padding: 5%;
+  padding-top: 1%;
   border-radius: 5px;
+  color: black;
 }
 
 .view-card-white {
@@ -349,7 +357,7 @@ code {
   padding: 5px 10px;
   margin-right: 40%;
   margin-left: 40%;
-  margin-bottom: 5px;
+  margin-bottom: 3%;
   font-family: 'Klee One';
   text-transform: lowercase;
 }
