@@ -11,6 +11,7 @@ function NewDinnerParty({userID, currentUser}) {
     const [id, setID] = useState(userID)
     const navigate = useNavigate()
 
+    // create new dinner party function
     function handleNewDPSubmit(e) {
         e.preventDefault();
         const newDP = {
@@ -35,10 +36,6 @@ function NewDinnerParty({userID, currentUser}) {
                 console.log(errors)
             }
         })
-        // .then(res => res.json())
-        // .then(newDP => setDinnerParty(newDP))
-        // navigate(`/profile`)
-        // console.log(newDP)
       }
 
     return (
@@ -73,7 +70,7 @@ function NewDinnerParty({userID, currentUser}) {
                 <input type="submit" value="create dinner party" className="new-dinner-party-submit-button"
                 />
             </form>
-            {errors?errors.map(e => <div>{e}</div>):null}
+            {errors ? errors.map(e => <div>{e}</div>) : null}
         </div>
     )
 }

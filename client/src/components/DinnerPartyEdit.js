@@ -376,7 +376,7 @@ function DinnerPartyEdit({}) {
                 {drinkErrors?drinkErrors.map(e => <div>{e}</div>):null} </>) :
                 <button className="edit-dinner-party-button" onClick={() => setShowDrinkForm(true)}>add an option for your drink menu</button>}
             <br></br>
-                <button className="edit-dinner-party-button"><Link to={`/dinner-parties/${id}`}>Return to view</Link></button>
+                <button className="return-to-view-dinner-party-button"><Link to={`/dinner-parties/${id}`}>Return to view</Link></button>
             </div>
         </div>
     )

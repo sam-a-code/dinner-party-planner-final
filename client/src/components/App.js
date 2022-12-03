@@ -33,27 +33,29 @@ function App() {
   const userID = currentUser.id
   console.log(userID)
 
-
   return (
     <>
       <Navbar currentUser={currentUser} updateUser={updateUser}/>
-      {!currentUser ? <div className="signup-login-text"><h3></h3>Please sign in to access your dinner parties!<Login errors={'please log in'} updateUser={updateUser}/> or <Signup /> </div> :
+      {!currentUser ?
+        <div className="signup-login-text">
+          <h3>Please sign in to access your dinner parties!</h3>
+          <Login errors={'please log in'} updateUser={updateUser}/> or
+          <Signup />
+        </div> :
       <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/profile" element={<Profile currentUser={currentUser} dinnerParties={dinnerParties} setDinnerParties={setDinnerParties}/>} />
-        <Route path="/create-dinner-party" element={<NewDinnerParty userID={userID} currentUser={currentUser} dinnerParties={dinnerParties} setDinnerParties={setDinnerParties}/>} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/dinner-parties/:id" element={<DinnerPartyView currentUser={currentUser} />} />
-        <Route path="/dinner-parties/edit/:id" element={<DinnerPartyEdit />} />
-        {/* <Route path="/dinner-parties/:id" element={<DinnerPartyView />} /> */}
-        {/* <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} /> */}
-      </Routes>
-      </>
-  }
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/profile" element={<Profile currentUser={currentUser} dinnerParties={dinnerParties} setDinnerParties={setDinnerParties}/>} />
+          <Route path="/create-dinner-party" element={<NewDinnerParty userID={userID} currentUser={currentUser} dinnerParties={dinnerParties} setDinnerParties={setDinnerParties}/>} />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/dinner-parties/:id" element={<DinnerPartyView currentUser={currentUser} />} />
+          <Route path="/dinner-parties/edit/:id" element={<DinnerPartyEdit />} />
+          {/* <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} /> */}
+        </Routes>
+      </>}
     </>
-  );
+  )
 }
 
 export default App;

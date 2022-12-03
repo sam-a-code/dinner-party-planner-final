@@ -11,17 +11,17 @@ function Home() {
       const drinkCards = drinks.map((item, i) => {
         const drinkID = item.id
         return (
-        <div key={i} className="edit-card">
+        <div key={i}>
         {item.recipe_name? <a href={item.recipe_link}>{item.recipe_name}</a> : null }
         {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
          </div>)
     })
-    
+
     return (
         <div className="homepage-text">
-        <h1>Add a DP checklist</h1>
-        <h1>Walk through site</h1>
-        {drinkCards}
+            <h1>Add a DP checklist</h1>
+            <h1>Walk through site</h1>
+            {drinkCards}
         </div>
     )
 }

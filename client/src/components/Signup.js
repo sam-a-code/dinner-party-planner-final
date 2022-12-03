@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
 function Signup () {
+    // set signup form state
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -10,6 +11,7 @@ function Signup () {
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
+    // sign in function
     function handleSubmit(e) {
         e.preventDefault()
         const user = {
@@ -53,7 +55,7 @@ function Signup () {
           onChange={(e) => setPassword(e.target.value)}
           className="signup-login-form-input"
         />
-         <br></br>
+        <br></br>
         <input
           type="text"
           value={email}
@@ -61,7 +63,7 @@ function Signup () {
           onChange={(e) => setEmail(e.target.value)}
           className="signup-login-form-input"
         />
-         <br></br>
+        <br></br>
         <input
           type="text"
           value={firstName}
@@ -69,7 +71,7 @@ function Signup () {
           onChange={(e) => setFirstName(e.target.value)}
           className="signup-login-form-input"
         />
-         <br></br>
+        <br></br>
         <input
           type="text"
           value={lastName}
@@ -77,11 +79,11 @@ function Signup () {
           onChange={(e) => setLastName(e.target.value)}
           className="signup-login-form-input"
         />
-         <br></br>
+        <br></br>
         <button className="signup-login-button" type="submit">Create account</button>
       </form>
       {errors?errors.map(e => <div>{e}</div>):null}
-      </div>
+    </div>
     );
 }
 
