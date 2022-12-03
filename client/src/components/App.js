@@ -15,7 +15,7 @@ import DinnerPartyEdit from './DinnerPartyEdit'
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
   const [dinnerParties, setDinnerParties] = useState(currentUser.dinner_parties)
-
+  const [showLogIn, setShowLogIn] = useState(true)
 
   useEffect(() => {
     fetch('/authorized_user')
@@ -33,15 +33,26 @@ function App() {
   const userID = currentUser.id
   console.log(userID)
 
+function setShowSignUp() {
+  setShowLogIn(!showLogIn)
+}
+
   return (
     <>
       <Navbar currentUser={currentUser} updateUser={updateUser}/>
       {!currentUser ?
         <div className="signup-login-text">
-          <h3>Please sign in to access your dinner parties!</h3>
-          <Login errors={'please log in'} updateUser={updateUser}/> or
-          <Signup />
-        </div> :
+          <h3>Please sign in or create an account to access your dinner parties!</h3>
+          {showLogIn ?
+          <div>
+            <Login updateUser={updateUser} setShowSignUp={setShowSignUp}/>
+            <button onClick={setShowSignUp} className="signup-login-toggle-button">Don't have an account? Sign up</button>
+          </div> :
+          <div>
+            <Signup updateUser={updateUser}/>
+            <button onClick={setShowSignUp} className="signup-login-toggle-button">Log in</button>
+          </div>}
+        </div>:
       <>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -50,6 +61,8 @@ function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/dinner-parties/:id" element={<DinnerPartyView currentUser={currentUser} />} />
           <Route path="/dinner-parties/edit/:id" element={<DinnerPartyEdit />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
           {/* <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} /> */}
         </Routes>

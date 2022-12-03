@@ -250,26 +250,26 @@ function DinnerPartyEdit({}) {
                         placeholder="theme"
                         className="edit-dinner-party-form-input"
                         onChange={(e) => setAddTheme(e.target.value)}
-                        ></input>
+                        ></input><br></br>
                         <input type="text"
                         value={addDecor}
                         placeholder="decor"
                         className="edit-dinner-party-form-input"
                         onChange={(e) => setAddDecor(e.target.value)}
-                        ></input>
+                        ></input><br></br>
                         <input type="text"
                         value={addSpotifyPlaylist}
                         placeholder="spotify_playlist"
                         className="edit-dinner-party-form-input"
                         onChange={(e) => setAddSpotifyPlaylist(e.target.value)}
-                        ></input>
+                        ></input><br></br>
                         <input type="text"
                         value={addGames}
                         placeholder="games"
                         className="edit-dinner-party-form-input"
                         onChange={(e) => setAddGames(e.target.value)}
-                        ></input>
-                        <input type="submit" className="edit-dinner-party-form-input"></input>
+                        ></input><br></br>
+                        <input type="submit" value="submit" className="edit-dinner-party-form-input"></input>
                     </form>
                 <button className="edit-dinner-party-form-input" onClick={() => setShowVibeForm(false)}>close</button> </>) :
                 <button className="edit-dinner-party-button" onClick={() => setShowVibeForm(true)}>add some vibes to your party</button>}
@@ -282,31 +282,31 @@ function DinnerPartyEdit({}) {
                             placeholder="name"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddName(e.target.value)}
-                            ></input>
+                            ></input><br></br>
                         <input type="text"
                             value={addContact}
                             placeholder="contact"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddContact(e.target.value)}
-                            ></input>
+                            ></input><br></br>
                         <input type="text"
                             value={addPlusOnes}
                             placeholder="plus_ones"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddPlusOnes(e.target.value)}
-                            ></input>
+                            ></input><br></br>
                         <input type="text"
                             value={addDietaryRestrictions}
                             placeholder="dietary_restrictions"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddDietaryRestrictions(e.target.value)}
-                            ></input>
+                            ></input><br></br>
                         <input type="text"
                             value={addAssignedDishes}
                             placeholder="assigned_dishes"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddAssignedDishes(e.target.value)}
-                            ></input>
+                            ></input><br></br>
                         <select placeholder="rsvp_status"
                             onChange={(e) => setAddRSVPStatus(e.target.value)}
                             className="edit-dinner-party-form-input">
@@ -315,8 +315,8 @@ function DinnerPartyEdit({}) {
                             <option value="no">No</option>
                             <option value="maybe">Maybe</option>
                             <option value="maybe that's probably a no" >Maybe that's probably a no</option>
-                            </select>
-                        <input type="submit" className="edit-dinner-party-form-input"></input>
+                            </select><br></br>
+                        <input type="submit" value="submit" className="edit-dinner-party-form-input"></input>
                     </form>
                 <button className="edit-dinner-party-form-input" onClick={() => setShowGuestForm(false)}>close</button>
                 {guestErrors?guestErrors.map(e => <div>{e}</div>):null} </>) :
@@ -330,24 +330,24 @@ function DinnerPartyEdit({}) {
                             placeholder="recipe_name"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddFoodRecipeName(e.target.value)}
-                            ></input>
+                            ></input><br></br>
                         <input type="text"
                             value={addFoodRecipeLink}
                             placeholder="recipe_link"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddFoodRecipeLink(e.target.value)}
-                            ></input>
+                            ></input><br></br>
                         <input type="text"
                             value={addFoodRecipeIngredients}
                             placeholder="ingredients"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddFoodRecipeIngredients(e.target.value)}
-                            ></input>
-                        <input type="submit" className="edit-dinner-party-form-input"></input>
+                            ></input><br></br>
+                        <input type="submit" value="submit" className="edit-dinner-party-form-input"></input>
                     </form>
                 <button className="edit-dinner-party-form-input" onClick={() => setShowFoodForm(false)}>close</button>
                 {foodErrors?foodErrors.map(e => <div>{e}</div>):null} </>) :
-                <button className="edit-dinner-party-button" onClick={() => setShowFoodForm(true)}>add an option for your food menu</button>}
+                <button className="edit-dinner-party-button" onClick={() => setShowFoodForm(true)}>add an item to your food menu</button>}
             <h3 className="edit-page-text">Drink Menus</h3>
                 <h3 className="edit-card-parent">{mappedDrinkMenus}</h3>
                 {showDrinkForm ? (<>
@@ -357,24 +357,24 @@ function DinnerPartyEdit({}) {
                             placeholder="recipe_name"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddDrinkRecipeName(e.target.value)}
-                            ></input>
+                            ></input><br></br>
                         <input type="text"
                             value={addDrinkRecipeLink}
                             placeholder="recipe_link"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddDrinkRecipeLink(e.target.value)}
-                            ></input>
+                            ></input><br></br>
                         <input type="text"
                             value={addDrinkRecipeIngredients}
                             placeholder="ingredients"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddDrinkRecipeIngredients(e.target.value)}
-                            ></input>
-                        <input type="submit" className="edit-dinner-party-form-input"></input>
+                            ></input><br></br>
+                        <input type="submit" value="submit" className="edit-dinner-party-form-input"></input>
                     </form>
                 <button className="edit-dinner-party-form-input" onClick={() => setShowDrinkForm(false)}>close</button>
                 {drinkErrors?drinkErrors.map(e => <div>{e}</div>):null} </>) :
-                <button className="edit-dinner-party-button" onClick={() => setShowDrinkForm(true)}>add an option for your drink menu</button>}
+                <button className="edit-dinner-party-button" onClick={() => setShowDrinkForm(true)}>add an item to your drink menu</button>}
             <br></br>
                 <button className="return-to-view-dinner-party-button"><Link to={`/dinner-parties/${id}`}>Return to view</Link></button>
             </div>

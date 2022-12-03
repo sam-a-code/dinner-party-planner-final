@@ -19,9 +19,11 @@ function Home() {
 
     return (
         <div className="homepage-text">
+            <div className='homepage-body'>
             <h1>Add a DP checklist</h1>
             <h1>Walk through site</h1>
             {drinkCards}
+            </div>
         </div>
     )
 }
