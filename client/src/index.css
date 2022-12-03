@@ -89,10 +89,12 @@ code {
   margin-right: auto;
   border-radius: 5px;
   margin-top: 5px;
+  font-family: 'Cabin Sketch', cursive;
 }
 
 .edit-vibe-card {
   background-color: white;
+  /* opacity: .8; */
   max-width: 30%;
   display: block;
   text-align: center;
@@ -120,7 +122,7 @@ code {
   color: black;
 }
 .edit-vibe-card-text:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255, .8);
 
 }
 .edit-guest-card {
@@ -151,7 +153,7 @@ code {
   color: black;
 }
 .edit-guest-card-text:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255, .8);
 
 }
 
@@ -181,7 +183,7 @@ code {
   color: black;
 }
 .edit-food-card-text:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255, .8);
 
 }
 
@@ -212,7 +214,7 @@ code {
   color: black;
 }
 .edit-drink-card-text:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255, .8);
 }
 
 
@@ -222,7 +224,9 @@ code {
 
 .edit-page-text {
   text-align: center;
-  text-decoration: underline;
+  /* text-decoration: underline; */
+  font-family: 'Cabin Sketch', cursive;
+  font-size: 30px;
 }
 
 .card-white {
@@ -234,6 +238,13 @@ code {
 
 .view-card-white {
   background-color: rgb(255, 255, 255, .5);
+  padding: 5%;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.view-card-white:hover {
+  background-color: rgb(255, 255, 255, .7);
   padding: 5%;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -370,6 +381,17 @@ code {
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 5px 10px;
+  /* margin-bottom: 10px; */
+  font-family: 'Klee One';
+  text-transform: lowercase;
+  text-align: center;
+}
+
+.return-to-view-dinner-party-button {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  margin-top: 10px;
   margin-bottom: 10px;
   font-family: 'Klee One';
   text-transform: lowercase;
