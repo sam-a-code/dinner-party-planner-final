@@ -69,7 +69,7 @@ function DinnerPartyView({currentUser}) {
         const guestAssignedDishes = item.assigned_dishes ? item.assigned_dishes : "nothing"
 
         return (
-            `${guestName} is bringing ${plusOnes} additional guests. The dishes you've asked them to bring: ${guestAssignedDishes}.`
+            `${guestName}: bringing ${plusOnes} additional guests. You've asked them to bring: ${guestAssignedDishes}.`
         )
     })
 

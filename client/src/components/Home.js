@@ -20,13 +20,13 @@ function Home() {
     return (
         <div className="homepage-text">
             <div className='homepage-body'>
-            <h1 className="homepage-header">Add a DP checklist</h1>
-            <h1 className="homepage-header">Walk through site</h1>
+            <h1 className="homepage-header">Who doesn't love a dinner party?</h1>
             <h3>Getting ready to throw a dinner party? Here are some things to think about! Click create dinner party to start planning.</h3>
             <ul>
                 <li>Pick a date, time, and location</li>
                 <li>Make your guest list and invite your guests</li>
                 <li>Dream up a fantastic menu of food and drinks (and figure out if you'll be asking your guests to bring anything)</li>
+                <li>Make sure you think about any dietary restrictions your guests might have!</li>
                 <li>Think about your dinner party vibe and how you can bring it to life.</li>
                     <li>Are you celebrating a friend's promotion? Then you'll probably want to pick up some flowers and make some DIY business card holders for your guests!</li>
                     <li>If you're hosting a movie night, then you'd obviously have to commit to doing themed appetizers based on the movie.</li>
