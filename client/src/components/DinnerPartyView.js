@@ -20,7 +20,7 @@ function DinnerPartyView({currentUser}) {
         <div key={i}>
             {item.theme? <div>Theme: {item.theme}</div> : null }
             {item.decor? <div>Decor: {item.decor}</div> : null}
-            {item.spotify_playlist? <a href={item.spotify_playlist}>Spotify playlist</a> : null}
+            {item.spotify_playlist? <a  style={{ color: 'black'}} href={item.spotify_playlist}>Spotify playlist</a> : null}
             {item.games? <div>Games: {item.games}</div> : null}
          </div>)
     })
@@ -41,7 +41,7 @@ function DinnerPartyView({currentUser}) {
     const mappedFoodMenus = dinnerParty.food_menus?.map((item, i) => {
         return (
         <div key={i}>
-            {item.recipe_name? <a href={item.recipe_link}>{item.recipe_name}</a> : null }
+            {item.recipe_name? <a style={{  color: 'black'}} href={item.recipe_link}>{item.recipe_name}</a> : null }
             {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
          </div>)
     })
@@ -49,7 +49,7 @@ function DinnerPartyView({currentUser}) {
     const mappedDrinkMenus = dinnerParty.drink_menus?.map((item, i) => {
         return (
         <div key={i}>
-            {item.recipe_name? <a href={item.recipe_link}>{item.recipe_name}</a> : null }
+            {item.recipe_name? <a style={{  color: 'black'}} href={item.recipe_link}>{item.recipe_name}</a> : null }
             {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
          </div>)
     })
@@ -112,8 +112,10 @@ function DinnerPartyView({currentUser}) {
 
     return (
         <div className="view-card">
+            <div className="view-buffer">
             <div className="view-card-white">
-                <h3 className="view-card-titles">{moment(dpDate).format("MMMM Do, YYYY")} at {dinnerParty.time}</h3>
+                <h3 className="view-card-titles">{moment(dpDate).format("MMMM Do, YYYY")}
+                <br></br>at {dinnerParty.time}</h3>
                 <h3 className="view-card-subtitles">{dinnerParty.location}</h3>
                 <h4 className="view-card-headers">Vibes</h4>
                     <div className="card-parent">{mappedVibes}</div>
@@ -125,10 +127,11 @@ function DinnerPartyView({currentUser}) {
                 <h4 className="view-card-headers">Drinks</h4>
                 <div className="card-parent">{mappedDrinkMenus}</div>
             </div>
-            <button className="edit-dinner-party-button button"><Link to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
+            <button className="edit-dinner-party-button button"><Link style={{ textDecoration: 'none', color: 'black'}} to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
             <br></br>
             <button className="edit-dinner-party-button button" onClick={handleSendEmail}>Email yourself a grocery list</button>
             <button className="edit-dinner-party-button button" onClick={handleSendInviteEmail}>Email yourself party details to forward to your guests!</button>
+            </div>
         </div>
     )
 }
