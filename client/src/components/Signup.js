@@ -80,7 +80,7 @@ function Signup () {
           className="signup-login-form-input"
         />
         <br></br>
-        <button className="signup-login-button" type="submit">Create account</button>
+        <button className="signup-login-button button" type="submit">Create account</button>
       </form>
       {errors?errors.map(e => <div>{e}</div>):null}
     </div>

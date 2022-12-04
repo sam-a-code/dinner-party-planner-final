@@ -46,11 +46,11 @@ function setShowSignUp() {
           {showLogIn ?
           <div>
             <Login updateUser={updateUser} setShowSignUp={setShowSignUp}/>
-            <button onClick={setShowSignUp} className="signup-login-toggle-button">Don't have an account? Sign up</button>
+            <button onClick={setShowSignUp} className="signup-login-toggle-button button">Don't have an account? Sign up</button>
           </div> :
           <div>
             <Signup updateUser={updateUser}/>
-            <button onClick={setShowSignUp} className="signup-login-toggle-button">Log in</button>
+            <button onClick={setShowSignUp} className="signup-login-toggle-button button">Log in</button>
           </div>}
         </div>:
       <>

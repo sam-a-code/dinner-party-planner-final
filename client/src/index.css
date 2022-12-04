@@ -28,11 +28,17 @@ code {
 }
 
 .homepage-text {
-  font-family: 'Cabin Sketch', cursive;
   margin-left: 10%;
   margin-right: 10%;
   clear: right;
 }
+
+.homepage-header {
+  font-family: 'Cabin Sketch', cursive;
+
+}
+
+
 
 .homepage-body {
   background-image: url('https://images.unsplash.com/photo-1616043986676-c0ac934f2b46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
@@ -41,6 +47,9 @@ code {
   filter: grayscale(100%);
   -webkit-filter: grayscale(100%);
   -webkit-transition: all 1s ease;
+  padding: 3rem 5rem;
+  margin: 1.5rem 0rem;
+  border-radius: 5px;
 }
 
 .homepage-body:hover {
@@ -86,6 +95,7 @@ code {
   margin-bottom: 3%;
   padding: 5%;
   text-align: center;
+  font-size: 18px;
   background-size: cover;
   background-position: center;
   /* background-image: url('https://images.unsplash.com/photo-1542461927-dd68c85adc56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'); */
@@ -97,7 +107,7 @@ code {
 }
 
 .view-card {
-  max-width: 500px;
+  max-width: 375px;
   padding-right: 18%;
   padding-left: 18%;
   background-image: url('https://images.unsplash.com/photo-1612634092815-511d2f4c9541?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
@@ -148,15 +158,18 @@ code {
 }
 
 .edit-vibe-card:hover {
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0)
+  /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0) */
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
+  /* box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; */
 }
 
 .edit-vibe-card-text {
-  background-color: rgb(255, 255, 255, .5);
+  background-color: rgb(255, 255, 255, .65);
   border-radius: 5px;
   padding-right: 15px;
   padding-left: 15px;
   color: black;
+  transition-duration: 1s;
 }
 
 .edit-vibe-card-text:hover {
@@ -181,15 +194,17 @@ code {
 }
 
 .edit-guest-card:hover {
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0)
+  /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0) */
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
 }
 
 .edit-guest-card-text {
-  background-color: rgb(255, 255, 255, .5);
+  background-color: rgb(255, 255, 255, .6);
   border-radius: 5px;
   padding-right: 15px;
   padding-left: 15px;
   color: black;
+  transition-duration: 1s;
 }
 .edit-guest-card-text:hover {
   background-color: rgb(255, 255, 255, .8);
@@ -211,15 +226,17 @@ code {
 }
 
 .edit-food-card:hover {
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0)
+  /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0) */
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
 }
 
 .edit-food-card-text {
-  background-color: rgb(255, 255, 255, .5);
+  background-color: rgb(255, 255, 255, .6);
   border-radius: 5px;
   padding-right: 15px;
   padding-left: 15px;
   color: black;
+  transition-duration: 1s;
 }
 .edit-food-card-text:hover {
   background-color: rgb(255, 255, 255, .8);
@@ -241,15 +258,17 @@ code {
 }
 
 .edit-drink-card:hover {
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0)
+  /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0) */
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; */
 }
 
 .edit-drink-card-text {
-  background-color: rgb(255, 255, 255, .5);
+  background-color: rgb(255, 255, 255, .6);
   border-radius: 5px;
   padding-right: 15px;
   padding-left: 15px;
   color: black;
+  transition-duration: 1s;
 }
 .edit-drink-card-text:hover {
   background-color: rgb(255, 255, 255, .8);
@@ -269,7 +288,7 @@ code {
 }
 
 .card-white {
-  background-color: rgb(255, 255, 255, .5);
+  background-color: rgb(255, 255, 255, .4);
   padding-top: 1%;
   border-radius: 5px;
   color: black;
@@ -283,7 +302,7 @@ code {
 }
 
 .view-card-white:hover {
-  background-color: rgb(255, 255, 255, .7);
+  background-color: rgb(255, 255, 255, .9);
   padding: 5%;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -358,96 +377,7 @@ code {
   font-family: 'Klee One';
 }
 
-.signup-login-button {
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  font-family: 'Klee One';
-  text-transform: lowercase;
-}
 
-.signup-login-toggle-button {
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin-bottom: 3%;
-  font-family: 'Klee One';
-  text-transform: lowercase;
-}
-.signup-login-toggle-button:hover {
-  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0)
-}
-
-.logout-button {
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px 10px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  font-family: 'Klee One';
-  float: right;
-  text-transform: lowercase;
-}
-
-.new-dinner-party-submit-button {
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  font-family: 'Klee One';
-  text-transform: lowercase;
-}
-
-.view-more-button {
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px 10px;
-  margin: 10px 60px;
-  font-family: 'Klee One';
-  text-transform: lowercase;
-  color: black;
-  text-decoration: none;
-}
-
-.create-dinner-party-button {
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px 10px;
-  margin-right: 40%;
-  margin-left: 40%;
-  margin-bottom: 3%;
-  font-family: 'Klee One';
-  text-transform: lowercase;
-}
-
-.create-dp-button-parent {
-  text-align: center;
-}
-
-.edit-dinner-party-button {
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px 10px;
-  /* margin-bottom: 10px; */
-  font-family: 'Klee One';
-  text-transform: lowercase;
-  text-align: center;
-}
-
-.return-to-view-dinner-party-button {
-  border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 5px 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  font-family: 'Klee One';
-  text-transform: lowercase;
-  text-align: center;
-}
 
 .edit-parent-div {
   text-align: center;
@@ -494,3 +424,136 @@ code {
 /* 13. lil white flowers: https://images.unsplash.com/photo-1519461343300-0d914c231ad4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80 */
 /* 14. girls night flowy pink: https://images.unsplash.com/photo-1559251606-c623743a6d76?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80 */
 /* 15. flower image lay: https://images.unsplash.com/photo-1542461927-dd68c85adc56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80 */
+
+
+.button {
+  align-self: center;
+  background-color: transparent;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 1.5px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Klee One';
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .2rem .4rem;
+  text-decoration: none;
+  transition: all 335ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-transform: lowercase;
+}
+.x-button {
+  align-self: center;
+  /* background-color: transparent; */
+  background-image: none;
+  opacity: 0.6;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Klee One';
+  font-size: 1.25rem;
+  line-height: 23px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: .2rem .5rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-transform: lowercase;
+}
+
+.button:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 200px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+.x-button:hover {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 200px -5px;
+  transform: translate3d(0, 2px, 0);
+  opacity: .9;
+}
+
+.button:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+.x-button:focus {
+  box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+.signup-login-button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.signup-login-toggle-button {
+  margin-bottom: 3%;
+}
+
+/* .signup-login-toggle-button:hover {
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0)
+} */
+
+.logout-button {
+  margin-bottom: 15px;
+  margin-right: 15px;
+  float: right;
+}
+
+.new-dinner-party-submit-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.view-more-button {
+  margin: 10px 60px;
+  background-color: rgb(255, 255, 255, 1);
+}
+
+.create-dinner-party-button {
+  margin-right: 40%;
+  margin-left: 40%;
+  margin-bottom: 3%;
+}
+
+.create-dp-button-parent {
+  text-align: center;
+}
+
+.edit-dinner-party-button {
+  text-align: center;
+}
+
+.return-to-view-dinner-party-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
