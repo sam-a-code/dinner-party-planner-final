@@ -20,7 +20,7 @@ function DinnerPartyView({currentUser}) {
         <div key={i}>
             {item.theme? <div>Theme: {item.theme}</div> : null }
             {item.decor? <div>Decor: {item.decor}</div> : null}
-            {item.spotify_playlist? <a  style={{ color: 'black'}} href={item.spotify_playlist}>Spotify playlist</a> : null}
+            {item.spotify_playlist? <a className="hover-underline" style={{ color: 'black'}} href={item.spotify_playlist}>Spotify playlist</a> : null}
             {item.games? <div>Games: {item.games}</div> : null}
          </div>)
     })
@@ -41,7 +41,7 @@ function DinnerPartyView({currentUser}) {
     const mappedFoodMenus = dinnerParty.food_menus?.map((item, i) => {
         return (
         <div key={i}>
-            {item.recipe_name? <a style={{  color: 'black'}} href={item.recipe_link}>{item.recipe_name}</a> : null }
+            {item.recipe_name? <a className="hover-underline" style={{  color: 'black'}} href={item.recipe_link}>{item.recipe_name}</a> : null }
             {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
          </div>)
     })
@@ -49,7 +49,7 @@ function DinnerPartyView({currentUser}) {
     const mappedDrinkMenus = dinnerParty.drink_menus?.map((item, i) => {
         return (
         <div key={i}>
-            {item.recipe_name? <a style={{  color: 'black'}} href={item.recipe_link}>{item.recipe_name}</a> : null }
+            {item.recipe_name? <a className="hover-underline" style={{  color: 'black'}} href={item.recipe_link}>{item.recipe_name}</a> : null }
             {item.ingredients? <div>Ingredients: {item.ingredients}</div> : null}
          </div>)
     })

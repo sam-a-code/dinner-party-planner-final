@@ -279,7 +279,7 @@ function DinnerPartyEdit({}) {
                         <input type="submit" value="submit" className="edit-dinner-party-form-input button"></input>
                     </form>
                 <button className="edit-dinner-party-form-input button" onClick={() => setShowVibeForm(false)}>close</button> </>) :
-                <button className="edit-dinner-party-button button" onClick={() => setShowVibeForm(true)}>add some vibes to your party</button>}
+                <button className="add-to-dinner-party-button button" onClick={() => setShowVibeForm(true)}>add some vibes to your party</button>}
             <h3 className="edit-page-text">Guests</h3>
                 <h3 className="edit-card-parent">{mappedGuests}</h3>
                 {showGuestForm ? (<>
@@ -327,7 +327,7 @@ function DinnerPartyEdit({}) {
                     </form>
                 <button className="edit-dinner-party-form-input button" onClick={() => setShowGuestForm(false)}>close</button>
                 {guestErrors?guestErrors.map(e => <div>{e}</div>):null} </>) :
-                <button className="edit-dinner-party-button button" onClick={() => setShowGuestForm(true)}>add to your guest list</button>}
+                <button className="add-to-dinner-party-button button" onClick={() => setShowGuestForm(true)}>add to your guest list</button>}
             <h3 className="edit-page-text">Food Menus</h3>
                 <h3 className="edit-card-parent">{mappedFoodMenus}</h3>
                 {showFoodForm ? (<>
@@ -354,7 +354,7 @@ function DinnerPartyEdit({}) {
                     </form>
                 <button className="edit-dinner-party-form-input button" onClick={() => setShowFoodForm(false)}>close</button>
                 {foodErrors?foodErrors.map(e => <div>{e}</div>):null} </>) :
-                <button className="edit-dinner-party-button button" onClick={() => setShowFoodForm(true)}>add an item to your food menu</button>}
+                <button className="add-to-dinner-party-button button" onClick={() => setShowFoodForm(true)}>add an item to your food menu</button>}
             <h3 className="edit-page-text">Drink Menus</h3>
                 <h3 className="edit-card-parent">{mappedDrinkMenus}</h3>
                 {showDrinkForm ? (<>
@@ -381,7 +381,7 @@ function DinnerPartyEdit({}) {
                     </form>
                 <button className="edit-dinner-party-form-input button" onClick={() => setShowDrinkForm(false)}>close</button>
                 {drinkErrors?drinkErrors.map(e => <div>{e}</div>):null} </>) :
-                <button className="edit-dinner-party-button button" onClick={() => setShowDrinkForm(true)}>add an item to your drink menu</button>}
+                <button className="add-to-dinner-party-button button" onClick={() => setShowDrinkForm(true)}>add an item to your drink menu</button>}
             <br></br>
                 <button className="return-to-view-dinner-party-button button"><Link to={`/dinner-parties/${id}`} style={{ textDecoration: 'none', color: 'black'}}>Return to view</Link></button>
             </div>
