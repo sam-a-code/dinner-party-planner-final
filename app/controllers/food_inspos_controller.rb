@@ -1,4 +1,6 @@
 class FoodInsposController < ApplicationController
+    skip_before_action :authorized_user, only: [:create, :index, :show]
+
     def index
       food_inspos = FoodInspo.all
       render json: food_inspos, status: :ok

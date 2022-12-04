@@ -58,7 +58,7 @@ function setShowSignUp() {
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile currentUser={currentUser} dinnerParties={dinnerParties} setDinnerParties={setDinnerParties}/>} />
           <Route path="/create-dinner-party" element={<NewDinnerParty userID={userID} currentUser={currentUser} dinnerParties={dinnerParties} setDinnerParties={setDinnerParties}/>} />
-          <Route path="/explore" element={<Explore />} />
+          <Route path="/explore" element={<Explore dinnerParties={dinnerParties}/>} />
           <Route path="/dinner-parties/:id" element={<DinnerPartyView currentUser={currentUser} />} />
           <Route path="/dinner-parties/edit/:id" element={<DinnerPartyEdit />} />
           <Route path="/signup" element={<Signup />} />

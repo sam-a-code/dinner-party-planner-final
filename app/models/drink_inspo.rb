@@ -1,0 +1,2 @@
+class DrinkInspo < ApplicationRecord
+end
