@@ -125,10 +125,10 @@ function DinnerPartyView({currentUser}) {
                 <h4 className="view-card-headers">Drinks</h4>
                 <div className="card-parent">{mappedDrinkMenus}</div>
             </div>
-            <button className="edit-dinner-party-button"><Link to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
+            <button className="edit-dinner-party-button button"><Link to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
             <br></br>
-            <button className="edit-dinner-party-button" onClick={handleSendEmail}>Email yourself a grocery list</button>
-            <button className="edit-dinner-party-button" onClick={handleSendInviteEmail}>Email yourself party details to forward to your guests!</button>
+            <button className="edit-dinner-party-button button" onClick={handleSendEmail}>Email yourself a grocery list</button>
+            <button className="edit-dinner-party-button button" onClick={handleSendInviteEmail}>Email yourself party details to forward to your guests!</button>
         </div>
     )
 }

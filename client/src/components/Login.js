@@ -53,7 +53,7 @@ function Login({ updateUser }) {
             className="signup-login-form-input"
           />
           <br></br>
-          <button type="submit" className="signup-login-button" >Login</button>
+          <button type="submit" className="signup-login-button button" >Login</button>
         </form>
         <br></br>
         {errors?errors.map(e => <div>{e}</div>):null}
