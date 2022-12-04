@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :food_inspos
+  resources :recipe_inspos
   resources :drink_menus
   resources :food_menus
   resources :vibes
