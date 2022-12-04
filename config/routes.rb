@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :drink_inspos
   resources :food_inspos
   resources :recipe_inspos
   resources :drink_menus

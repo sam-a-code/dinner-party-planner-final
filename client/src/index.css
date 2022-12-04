@@ -618,3 +618,16 @@ code {
   /* text-decoration: underline; */
   border-bottom: solid 1px ;
 }
+
+.inspo-card {
+  text-align: center;
+  min-width: 20%;
+  max-width: 30%;
+}
+
+.inspo-card-parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
