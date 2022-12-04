@@ -1,0 +1,2 @@
+class FoodInspo < ApplicationRecord
+end
