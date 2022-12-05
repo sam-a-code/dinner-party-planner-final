@@ -715,6 +715,7 @@ code {
   text-align: center;
   min-width: 20%;
   max-width: 30%;
+  text-transform: lowercase;
 }
 
 .inspo-image {
