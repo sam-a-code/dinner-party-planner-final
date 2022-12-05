@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 
-function Signup () {
+function Signup ({setShowSignUp}) {
     // set signup form state
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -14,6 +14,7 @@ function Signup () {
     // sign in function
     function handleSubmit(e) {
         e.preventDefault()
+        setShowSignUp()
         const user = {
             username: username,
             password: password,
