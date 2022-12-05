@@ -21,7 +21,6 @@ function Profile({ currentUser, dinnerParties, setDinnerParties }) {
     // console.log(dinnerPartiesByDate)
 
     const dinnerPartyMiniCard = dinnerParties?.map((dinner_party) => {
-        // let dpGuests = dinnerPartyGuests(dinner_party)
         return <DinnerPartyMiniCard
             key={dinner_party.id}
             id={dinner_party.id}
@@ -29,7 +28,8 @@ function Profile({ currentUser, dinnerParties, setDinnerParties }) {
             time={dinner_party.time}
             location={dinner_party.location}
             currentUser={currentUser}
-            // dpGuests={dpGuests}
+            dinnerParties={dinnerParties}
+            setDinnerParties={setDinnerParties}
         />
     })
 
@@ -52,36 +52,3 @@ function Profile({ currentUser, dinnerParties, setDinnerParties }) {
 }
 
 export default Profile
-
-//dinner party math
-  // const totalGuestCount = dinnerParties.map((dinner_party) => {
-    //     return dinner_party.guests.length
-    // })
-
-    // let totalGuestSum = 0
-
-    // totalGuestCount.forEach(value => {
-    //     totalGuestSum += value
-    // })
-
-    // console.log({totalGuestSum})
-
-    // function dinnerPartyGuests(dinner_party) {
-
-    //     let totalInvited = dinner_party.guests.length
-    //     console.log({totalInvited})
-    //     let guestSum = totalInvited
-
-    //     const plusOneCount = dinner_party.guests.map((guests) => {
-    //         console.log("plus ones", guests.plus_ones)
-    //         return guests.plus_ones
-    //     })
-
-    //     console.log(plusOneCount)
-
-    //     plusOneCount.forEach(value => guestSum += value)
-    //     console.log({guestSum})
-
-    //     return guestSum
-    // }
-

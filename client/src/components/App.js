@@ -49,7 +49,7 @@ function setShowSignUp() {
             <button onClick={setShowSignUp} className="signup-login-toggle-button button">Don't have an account? Sign up</button>
           </div> :
           <div>
-            <Signup updateUser={updateUser}/>
+            <Signup updateUser={updateUser} setShowSignUp={setShowSignUp}/>
             <button onClick={setShowSignUp} className="signup-login-toggle-button button">Log in</button>
           </div>}
         </div>:

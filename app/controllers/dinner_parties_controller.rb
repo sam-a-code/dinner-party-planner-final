@@ -2,7 +2,7 @@ class DinnerPartiesController < ApplicationController
 
   def index
     dinner_parties = DinnerParty.where(user_id: current_user.id)
-    render json: dinner_parties, status: :ok
+    render json: dinner_parties.order(date: :desc), status: :ok
   end
 
   # def show
@@ -24,7 +24,7 @@ class DinnerPartiesController < ApplicationController
   def update
     dinner_party = DinnerParty.find(params[:id])
     dinner_party.update!(dinner_party_params)
-    render json: dinner_party, status: :updated
+    render json: dinner_party, status: :ok
   end
 
   def destroy
