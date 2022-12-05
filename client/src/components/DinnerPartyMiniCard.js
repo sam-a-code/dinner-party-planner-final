@@ -3,12 +3,16 @@ import { useNavigate, Link } from "react-router-dom"
 import DinnerPartyView from "./DinnerPartyView";
 import moment from 'moment';
 
-function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests, setDinnerParties}) {
+function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests, setDinnerParties, dinnerParties}) {
     const [showDPEditForm, setShowDPEditForm] = useState(false)
+    const [showDPCancel, setShowDPCancel] = useState(false)
     const [dpDate, setDpDate] = useState(date)
     const [dpTime, setDpTime] = useState(time)
     const [dpLocation, setDpLocation] = useState(location)
     const [dpErrors, setDpErrors] = useState([])
+
+    const navigate = useNavigate()
+
 
     let newDatePretty = moment().format()
     const isUpcoming = date > newDatePretty
@@ -28,11 +32,19 @@ function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests, s
         })
         .then(res => {
             if (res.ok) {
-                res.json().then((data) => console.log(data))
+                res.json()
+                .then((data) => console.log(data))
+                navigate(`/dinner-parties/${id}`)
             }else {
                 res.json().then(data => setDpErrors(Object.entries(data.errors)))
                 console.log(dpErrors)
             }
+        })
+    }
+
+    function handleDeleteDP() {
+        fetch(`/dinner_parties/${id}`, {
+            method: "DELETE",
         })
     }
 
@@ -44,8 +56,10 @@ function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests, s
                 <h4>TIME: {time}</h4>
                 <h4>LOCATION: {location}</h4>
                 </div>
-                <button className="view-more-button button"><Link to={`/dinner-parties/${id}`} style={{ textDecoration: 'none', color: 'black'}}>view</Link></button>
-                <button className="view-more-button button"><Link to={`/dinner-parties/edit/${id}`} style={{ textDecoration: 'none', color: 'black' }}>add details</Link></button>
+                <button className="mini-card-button button"><Link to={`/dinner-parties/${id}`} style={{ textDecoration: 'none', color: 'black'}}>view</Link></button>
+                <br></br>
+                <button className="mini-card-button button"><Link to={`/dinner-parties/edit/${id}`} style={{ textDecoration: 'none', color: 'black' }}>add details</Link></button>
+                <br></br>
                 {showDPEditForm ?
                 (<>
                     <form onSubmit={handleChangeDP}>
@@ -67,13 +81,19 @@ function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests, s
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setDpLocation(e.target.value)}
                             ></input><br></br>
-                        <input type="submit" value="submit" className="view-more-button button"></input>
+                        <input type="submit" value="submit" className="mini-card-button button"></input>
                     </form>
-                    <button className="view-more-button button" onClick={() => setShowDPEditForm(!showDPEditForm)}>close</button>
+                    <button className="mini-card-button button" onClick={() => setShowDPEditForm(!showDPEditForm)}>close</button>
                     {dpErrors?dpErrors.map(e => <div>{e}</div>):null} </>)
-                :
-                <button className="view-more-button button" onClick={() => setShowDPEditForm(!showDPEditForm)}>change date/time/location</button>}
-                <button className="view-more-button button">cancel dinner party</button>
+                : <button className="mini-card-button button" onClick={() => setShowDPEditForm(!showDPEditForm)}>change date/time/location</button>}
+                <br></br>
+                {showDPCancel ?
+                <>
+                <h3 className="confirm-cancel">Are you sure?</h3>
+                <button onClick={handleDeleteDP} className="mini-card-button button">Yes, cancel!</button>
+                <button onClick={() => setShowDPCancel(!showDPCancel)} className="mini-card-button button">No, keep this party!</button>
+                </>
+                : <button onClick={() => setShowDPCancel(!showDPCancel)} className="mini-card-button button">cancel dinner party</button>}
         </div>
     )
 }
