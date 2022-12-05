@@ -1,0 +1,2 @@
+class VibeInspo < ApplicationRecord
+end

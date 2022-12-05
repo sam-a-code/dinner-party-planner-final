@@ -16,6 +16,7 @@ function DrinkInspoCard({name, link, image, ingredients, exploreDPs}) {
     function addDrinkInspo(e) {
         console.log(addDrinkInspoDP)
         e.preventDefault();
+        toggleDPDropdown(!toggleDPDropdown)
         // navigate(`/dinner-parties/${addDrinkInspoDP}`)
         const addDrinkInspo = {
             recipe_name: name,
