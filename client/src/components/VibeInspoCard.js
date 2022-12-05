@@ -3,31 +3,33 @@ import { useNavigate, Link } from "react-router-dom"
 import DinnerPartyView from "./DinnerPartyView";
 import moment from 'moment';
 
-function DrinkInspoCard({name, link, image, ingredients, exploreDPs}) {
+function VibeInspoCard({theme, decor, image, spotify_playlist, games, exploreDPs, vibeInspos}) {
     const [showDPDrowndown, setShowDPDropdown] = useState(true)
-    const [addDrinkInspoDP, setAddDrinkInspoDP] = useState("")
+    const [addVibeInspoDP, setAddVibeInspoDP] = useState("")
     const navigate = useNavigate()
 
+    console.log(theme)
 
     function toggleDPDropdown() {
         setShowDPDropdown(!showDPDrowndown)
     }
 
-    function addDrinkInspo(e) {
-        console.log(addDrinkInspoDP)
+    function addVibeInspo(e) {
+        console.log(addVibeInspoDP)
         e.preventDefault();
         toggleDPDropdown(!toggleDPDropdown)
         // navigate(`/dinner-parties/${addDrinkInspoDP}`)
-        const addDrinkInspo = {
-            recipe_name: name,
-            recipe_link: link,
-            ingredients: ingredients,
-            dinner_party_id: addDrinkInspoDP
+        const addVibeInspo = {
+            theme: theme,
+            decor: decor,
+            spotify_playlist: spotify_playlist,
+            games: games,
+            dinner_party_id: addVibeInspoDP
         }
-        fetch(`/drink_menus`, {
+        fetch(`/vibes`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(addDrinkInspo),
+            body: JSON.stringify(addVibeInspo),
         })
         .then(res => res.json())
         .then((data) => {
@@ -42,16 +44,17 @@ function DrinkInspoCard({name, link, image, ingredients, exploreDPs}) {
                 <img src={image} style={{maxWidth: '250px', borderRadius: '2px' }}></img>
             </div>
             <br></br>
-            <a href={link}>{name}</a>
-            {/* <p>{ingredients}</p> */}
-            <br></br>
+            {theme ? <p>theme: {theme}</p> : null }
+            {decor ? <p>decor: {decor}</p> : null }
+            {games? <p>games: {games}</p> : null}
+            {spotify_playlist ? <a href={spotify_playlist}>spotify playlist</a> : null }
             {showDPDrowndown ?
                 <div>
-                    <button className="inspo-button" onClick={toggleDPDropdown}>add this dish to one of your dinner parties!</button>
+                    <button className="button inspo-button" onClick={toggleDPDropdown}>add these vibes to one of your dinner parties!</button>
                 </div>:
                 <div>
                     <form>
-                    <select className="edit-dinner-party-form-input" onChange={(e) => setAddDrinkInspoDP(e.target.value)}>
+                    <select className="edit-dinner-party-form-input" onChange={(e) => setAddVibeInspoDP(e.target.value)}>
                         <option>Select a dinner party</option>
                         {exploreDPs.map((DP) => {
                             return (
@@ -59,13 +62,12 @@ function DrinkInspoCard({name, link, image, ingredients, exploreDPs}) {
                                 </option>
                             )})}
                     </select>
-                    <br></br>
-                    <button className="inspo-button" type='submit' onClick={addDrinkInspo}>add to your party</button>
+                    <button className="button inspo-button" type='submit' onClick={addVibeInspo}>add to your party</button>
                     </form>
-                    <button className="inspo-button" onClick={toggleDPDropdown}>close add</button>
+                    <button className="button inspo-button" onClick={toggleDPDropdown}>close add</button>
                 </div>}
         </div>
     )
 }
 
-export default DrinkInspoCard
+export default VibeInspoCard

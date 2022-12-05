@@ -38,18 +38,20 @@ function FoodInspoCard({name, link, image, ingredients, exploreDPs}) {
 
     return (
         <div className="inspo-card">
-            <img src={image} style={{maxWidth: '250px', }}></img>
+            <div className="inspo-image">
+                <img src={image} style={{maxWidth: '250px', borderRadius: '2px'}}></img>
+            </div>
             <br></br>
             <a href={link}>{name}</a>
             {/* <p>{ingredients}</p> */}
             <br></br>
             {showDPDrowndown ?
                 <div>
-                    <button onClick={toggleDPDropdown}>add this dish to one of your dinner parties!</button>
+                    <button className="button inspo-button" onClick={toggleDPDropdown}>add this dish to one of your dinner parties!</button>
                 </div>:
                 <div>
                     <form>
-                    <select onChange={(e) => setAddFoodInspoDP(e.target.value)}>
+                    <select className="edit-dinner-party-form-input" onChange={(e) => setAddFoodInspoDP(e.target.value)}>
                         <option>Select a dinner party</option>
                         {exploreDPs.map((DP) => {
                             return (
@@ -58,9 +60,9 @@ function FoodInspoCard({name, link, image, ingredients, exploreDPs}) {
                             )})}
                     </select>
                     <br></br>
-                    <button type='submit' onClick={addFoodInspo}>add to your party</button>
+                    <button className="button inspo-button" type='submit' onClick={addFoodInspo}>add to your party</button>
                     </form>
-                    <button onClick={toggleDPDropdown}>close add</button>
+                    <button className="button inspo-button" onClick={toggleDPDropdown}>close add</button>
                 </div>}
         </div>
     )

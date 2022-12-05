@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import FoodInspoCard from "./FoodInspoCard";
 import DrinkInspoCard from "./DrinkInspoCard";
+import VibeInspoCard from "./VibeInspoCard";
 
 function Explore() {
     const [exploreDPs, setExploreDPs] = useState([])
     const [foodInspos, setFoodInspos] = useState([])
     const [drinkInspos, setDrinkInspos] = useState([])
+    const [vibeInspos, setVibeInspos] = useState([])
 
 
     useEffect(() => {
@@ -25,6 +27,12 @@ function Explore() {
         fetch(`/drink_inspos`)
           .then((res) => res.json())
           .then((drinkInspos) => setDrinkInspos(drinkInspos));
+      }, []);
+
+    useEffect(() => {
+        fetch(`/vibe_inspos`)
+          .then((res) => res.json())
+          .then((vibeInspos) => setVibeInspos(vibeInspos));
       }, []);
 
 
@@ -54,12 +62,29 @@ function Explore() {
             />
     })
 
+    const vibeInspoCard = vibeInspos?.map((vibe_inspo) => {
+        return <VibeInspoCard
+            key={vibe_inspo.id}
+            theme={vibe_inspo.vibe_inspo_theme}
+            decor={vibe_inspo.vibe_inspo_decor}
+            games={vibe_inspo.vibe_inspo_games}
+            image={vibe_inspo.vibe_inspos_image}
+            spotify_playlist={vibe_inspo.vibe_inspo_spotify_playlist}
+            vibeInspos={vibeInspos}
+            exploreDPs={exploreDPs}
+            />
+
+    })
+
+
     return (
         <>
         <h3>Food Inspo</h3>
             <div className="inspo-card-parent">{foodInspoCard}</div>
         <h3>Drink Inspo</h3>
             <div className="inspo-card-parent">{drinkInspoCard}</div>
+        <h3>Vibe Inspo</h3>
+            <div className="inspo-card-parent">{vibeInspoCard}</div>
         </>
     )
 }
