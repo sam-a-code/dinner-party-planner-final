@@ -18,20 +18,28 @@ function Home() {
     })
 
     return (
-        <div className="homepage-text">
+        <div className="homepage-parent">
             <div className='homepage-body'>
-            <h1 className="homepage-header">Who doesn't love a dinner party?</h1>
-            <h3>Getting ready to throw a dinner party? Here are some things to think about! Click create dinner party to start planning.</h3>
-            <ul>
-                <li>Pick a date, time, and location</li>
-                <li>Make your guest list and invite your guests</li>
-                <li>Dream up a fantastic menu of food and drinks (and figure out if you'll be asking your guests to bring anything)</li>
-                <li>Make sure you think about any dietary restrictions your guests might have!</li>
-                <li>Think about your dinner party vibe and how you can bring it to life.</li>
-                    <li>Are you celebrating a friend's promotion? Then you'll probably want to pick up some flowers and make some DIY business card holders for your guests!</li>
-                    <li>If you're hosting a movie night, then you'd obviously have to commit to doing themed appetizers based on the movie.</li>
-                    <li>Maybe you're doing the all-time-classic: brunch. You'll need mimosa supplies (make sure to consider if any of your guests would like alcohol-free options!), a stunning bagel spread or frittata moment, and napkins for the tears from laughing so hard.</li>
-            </ul>
+            <h1 className="homepage-header homepage-text">Who doesn't love a dinner party?</h1>
+            <div className='homepage-text'>
+                <h3 >Getting ready to throw a dinner party? Here are some things to think about. <br></br>Click create dinner party to start planning!</h3>
+                <ul className='homepage-list'>
+                    <li>Pick a date, time, and location</li>
+                    <li>Make your guest list and invite your guests</li>
+                    <li>Dream up a fantastic menu of food and drinks</li>
+                    <ul>
+                    <li>Make sure that your menu accomodates your guests whether they are gluten-free/vegan/sober/etc.!</li>
+                    <li>Figure out if you'll be asking your guests to bring anything</li>
+                    </ul>
+                    <li>Think about your dinner party vibe and how you can bring it to life</li>
+                    <ul>
+                        <li>Are you celebrating a friend's promotion? Then you'll probably want to pick up some flowers and make their favorite dessert. If you're crafty, you might even make some DIY business card holders for your guests</li>
+                        <li>If you're hosting a movie night, then you'd obviously have to commit to doing themed appetizers based on the movie</li>
+                        <li>Maybe you're doing the all-time-classic: brunch (yes, this still counts as a dinner party). You'll need mimosa supplies, a stunning bagel spread or frittata moment, and napkins for the tears from laughing so hard with your friends</li>
+                        </ul>
+                    <li>Most importantly, think about creating memorable experiences with people you enjoy, while eating delicious food and drinking snazzy drinks</li>
+                </ul>
+            </div>
             </div>
         </div>
     )

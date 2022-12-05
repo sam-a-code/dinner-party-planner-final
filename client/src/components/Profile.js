@@ -17,6 +17,9 @@ function Profile({ currentUser, dinnerParties, setDinnerParties }) {
           .then((data) => setDinnerParties(data));
       }, []);
 
+    // const dinnerPartiesByDate = dinnerParties.sort((a,b) => (a.date > b.date) ? 1 : -1)
+    // console.log(dinnerPartiesByDate)
+
     const dinnerPartyMiniCard = dinnerParties?.map((dinner_party) => {
         // let dpGuests = dinnerPartyGuests(dinner_party)
         return <DinnerPartyMiniCard

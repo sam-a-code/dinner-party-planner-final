@@ -24,7 +24,7 @@ function Navbar({ currentUser, updateUser }) {
         <Link className="navbar" to="/create-dinner-party">Create Dinner Party</Link>
         <Link className="navbar" to="/explore">Explore</Link>
         {currentUser? <button onClick={handleLogout} className="logout-button button">Logout</button> : null}
-        <h1 className="site-header">Dinner Party Planner</h1>
+        <h1 className="site-header">WeAte.</h1>
       </header>
     );
   }

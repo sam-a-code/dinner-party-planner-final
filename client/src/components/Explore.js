@@ -79,12 +79,12 @@ function Explore() {
 
     return (
         <>
-        <h3>Food Inspo</h3>
-            <div className="inspo-card-parent">{foodInspoCard}</div>
-        <h3>Drink Inspo</h3>
-            <div className="inspo-card-parent">{drinkInspoCard}</div>
-        <h3>Vibe Inspo</h3>
+        <h3 className="inspo-header">Vibe Inspo</h3>
             <div className="inspo-card-parent">{vibeInspoCard}</div>
+        <h3 className="inspo-header">Food Inspo</h3>
+            <div className="inspo-card-parent">{foodInspoCard}</div>
+        <h3 className="inspo-header">Drink Inspo</h3>
+            <div className="inspo-card-parent">{drinkInspoCard}</div>
         </>
     )
 }
