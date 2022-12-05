@@ -43,11 +43,10 @@ function VibeInspoCard({theme, decor, image, spotify_playlist, games, exploreDPs
             <div className="inspo-image">
                 <img src={image} style={{maxWidth: '250px', borderRadius: '2px' }}></img>
             </div>
-            <br></br>
             {theme ? <p>theme: {theme}</p> : null }
             {decor ? <p>decor: {decor}</p> : null }
             {games? <p>games: {games}</p> : null}
-            {spotify_playlist ? <a href={spotify_playlist}>spotify playlist</a> : null }
+            {spotify_playlist ? <a className="hover-underline" style={{  color: 'black'}} href={spotify_playlist}>spotify playlist</a> : null }
             {showDPDrowndown ?
                 <div>
                     <button className="button inspo-button" onClick={toggleDPDropdown}>add these vibes to one of your dinner parties!</button>
@@ -62,6 +61,7 @@ function VibeInspoCard({theme, decor, image, spotify_playlist, games, exploreDPs
                                 </option>
                             )})}
                     </select>
+                    <br></br>
                     <button className="button inspo-button" type='submit' onClick={addVibeInspo}>add to your party</button>
                     </form>
                     <button className="button inspo-button" onClick={toggleDPDropdown}>close add</button>

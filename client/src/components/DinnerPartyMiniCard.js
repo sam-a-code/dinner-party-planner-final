@@ -4,10 +4,14 @@ import DinnerPartyView from "./DinnerPartyView";
 import moment from 'moment';
 
 function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests}) {
+
+    let newDatePretty = moment().format()
+    const isUpcoming = date > newDatePretty
+
     return (
         <div className="mini-card">
             <div className="card-white">
-                {/* <p>Total guests: {dpGuests}</p> */}
+                {isUpcoming ? <h4>**UPCOMING**</h4> : null}
                 <h4>DATE: {moment(date).format("MMMM Do, YYYY")}</h4>
                 <h4>TIME: {time}</h4>
                 <h4>LOCATION: {location}</h4>
