@@ -35,14 +35,19 @@ code {
 .homepage-header {
   font-family: 'Cabin Sketch', cursive;
   text-align: center;
-  margin-left: 22%;
-  margin-right: 22%;
+  margin-left: 26%;
+  margin-right: 26%;
 }
 
 .homepage-text {
   background-color: rgb(255, 255, 255, .7);
   border-radius: 5px;
   padding: 1%;
+  transition: 1s ease;
+}
+
+.homepage-text:hover {
+  background-color: rgb(255, 255, 255,.95);
 }
 
 .homepage-list {
@@ -65,7 +70,10 @@ code {
 
 
 .homepage-body {
-  background-image: url('https://images.unsplash.com/photo-1609951651467-713256d1a3be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80');
+  background-image: url('https://images.squarespace-cdn.com/content/v1/541b1515e4b0a990b33a796e/1651508133271-AMRLDUCILVZS9IA4QL9Z/2018_09_24_POTATOBAR_0384.jpg?format=1500w');
+  /* background-image: url('https://images.squarespace-cdn.com/content/v1/541b1515e4b0a990b33a796e/1631297022743-S5DUJEEINEK6Z8CJYI5E/IMG_0014.JPG?format=1500w'); */
+  /* background-image: url('https://images.squarespace-cdn.com/content/v1/541b1515e4b0a990b33a796e/1611363984693-NTOBSI2LDJZTGPKGXR6W/alison-roman-cooking-olive-oil-roasted-chicken-caramelized-carrots.jpg?format=1500w'); */
+  /* background-image: url('https://images.unsplash.com/photo-1609951651467-713256d1a3be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80'); */
   /* background-image: url('https://images.unsplash.com/photo-1506280754576-f6fa8a873550?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'); */
   /* background-image: url('https://images.unsplash.com/photo-1616043986676-c0ac934f2b46?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'); */
   background-size: cover;
@@ -716,12 +724,13 @@ code {
   min-width: 20%;
   max-width: 30%;
   text-transform: lowercase;
+  padding-bottom: 1%
 }
 
 .inspo-image {
   transition: 1s ease;
-
 }
+
 .inspo-image:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);

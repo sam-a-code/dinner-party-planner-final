@@ -10,7 +10,6 @@ function Explore() {
     const [drinkInspos, setDrinkInspos] = useState([])
     const [vibeInspos, setVibeInspos] = useState([])
 
-
     useEffect(() => {
         fetch(`/dinner_parties`)
           .then((res) => res.json())
@@ -34,7 +33,6 @@ function Explore() {
           .then((res) => res.json())
           .then((vibeInspos) => setVibeInspos(vibeInspos));
       }, []);
-
 
 
 
@@ -90,3 +88,24 @@ function Explore() {
 }
 
 export default Explore
+
+//search bar scratch pad 
+// const [search, setSearch] = useState([])
+
+ // const searchedVibes = vibeInspos.filter(
+    //     (vibe) =>
+    //         vibe.theme.toLowerCase().includes(search.toLowerCase()) ||
+    //         vibe.decor.toLowerCase().includes(search.toLowerCase()) ||
+    //         vibe.spotify_playlist.toLowerCase().includes(search.toLowerCase()) ||
+    //         vibe.games.toLowerCase().includes(search.toLowerCase())
+    // )
+
+    // <div>
+    // <input
+    //     type='text'
+    //     id='search'
+    //     placeholder='Search'
+    //     value={search}
+    //     onChange={(e) => setSearch(e.target.value)}
+    //     />
+    // </div>
