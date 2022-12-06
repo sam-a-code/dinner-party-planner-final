@@ -17,9 +17,13 @@ class DinnerPartiesController < ApplicationController
   end
 
   def create
-    dinner_party = DinnerParty.create!(dinner_party_params)
+    dinner_party = current_user.dinner_parties.create!(dinner_party_params)
     render json: dinner_party, status: :created
   end
+  # def create
+  #   dinner_party = DinnerParty.create!(dinner_party_params)
+  #   render json: dinner_party, status: :created
+  # end
 
   def update
     dinner_party = DinnerParty.find(params[:id])
