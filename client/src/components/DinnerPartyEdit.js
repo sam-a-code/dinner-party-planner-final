@@ -192,7 +192,7 @@ function DinnerPartyEdit({}) {
             <div className="edit-vibe-card-text">
                 {item.theme? <div >Theme: {item.theme}</div> : null }
                 {item.decor? <div >Decor: {item.decor}</div> : null}
-                {item.spotify_playlist? <a style= {{color: 'black'}} href={item.spotify_playlist}>Spotify playlist</a> : null}
+                {item.spotify_playlist? <a className="hover-underline" style= {{color: 'black'}} href={item.spotify_playlist}>Spotify playlist</a> : null}
                 {item.games? <div>Games: {item.games}</div> : null}
                 <br></br>
             </div>
