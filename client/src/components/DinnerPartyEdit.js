@@ -158,6 +158,7 @@ function DinnerPartyEdit({}) {
         })
     }
 
+
     function handleAddDrink(e) {
         e.preventDefault();
         const addDrink = {
