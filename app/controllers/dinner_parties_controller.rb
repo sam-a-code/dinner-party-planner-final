@@ -32,7 +32,7 @@ class DinnerPartiesController < ApplicationController
   end
 
   def destroy
-    dinner_party = DinnerParty.find(params[:id])
+    dinner_party = current_user.dinner_parties.find(params[:id])
     dinner_party.destroy
     head :no_content
   end

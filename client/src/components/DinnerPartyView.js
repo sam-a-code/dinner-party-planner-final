@@ -59,20 +59,30 @@ function DinnerPartyView({currentUser}) {
 
     //mapping ingredients for grocery list email
     const mappedFoodIngredients = dinnerParty.food_menus?.map((item, i) => {
-        return item.ingredients
+        return (
+            ` 🛒 ${item.recipe_name} ingredients: ${item.ingredients}`
+            )
     })
+
+
     const mappedDrinkIngredients = dinnerParty.drink_menus?.map((item, i) => {
-        return item.ingredients
+        return (
+            ` 🛒 ${item.recipe_name} ingredients: ${item.ingredients}`
+            )
     })
+
+    console.log(mappedFoodIngredients)
+
 
     //mapping invited guests for invite email
     const mappedInvitedGuests = dinnerParty.guests?.map((item, i) => {
         const guestName = item.name
+        const rsvpStatus = item.rsvp_status
         const plusOnes = item.plus_ones ? item.plus_ones : 0
         const guestAssignedDishes = item.assigned_dishes ? item.assigned_dishes : "nothing"
 
         return (
-            `${guestName}: bringing ${plusOnes} additional guests. You've asked them to bring: ${guestAssignedDishes}.`
+            ` ✨ ${guestName} RSVPed ${rsvpStatus} and has ${plusOnes} additional guests. You've asked them to bring: ${guestAssignedDishes}.`
         )
     })
 
@@ -130,10 +140,10 @@ function DinnerPartyView({currentUser}) {
                 <h4 className="view-card-headers">Drinks</h4>
                 <div className="card-parent">{mappedDrinkMenus}</div>
             </div>
-            <button className="edit-dinner-party-button button"><Link style={{ textDecoration: 'none', color: 'black'}} to={`/dinner-parties/edit/${id}`}>Edit</Link></button>
+            <button className="edit-dinner-party-button button"><Link style={{ textDecoration: 'none', color: 'black'}} to={`/dinner-parties/edit/${id}`}>Edit dinner party</Link></button>
             <br></br>
-            <button className="edit-dinner-party-button button" onClick={handleSendEmail}>Email yourself a grocery list</button>
-            <button className="edit-dinner-party-button button" onClick={handleSendInviteEmail}>Email yourself party details to forward to your guests!</button>
+            <button className="edit-dinner-party-button button" onClick={handleSendEmail}>Email a grocery list to yourself</button>
+            <button className="edit-dinner-party-button button" onClick={handleSendInviteEmail}>Email guest information to yourself</button>
             </div>
         </div>
     )
