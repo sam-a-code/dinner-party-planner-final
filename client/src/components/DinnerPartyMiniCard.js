@@ -46,6 +46,7 @@ function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests, s
         fetch(`/dinner_parties/${id}`, {
             method: "DELETE",
         })
+        window.location.reload(true)
     }
 
     return (

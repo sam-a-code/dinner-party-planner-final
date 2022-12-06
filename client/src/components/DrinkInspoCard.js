@@ -41,12 +41,12 @@ function DrinkInspoCard({name, link, image, ingredients, exploreDPs}) {
             <div className="inspo-image">
                 <img src={image} style={{maxWidth: '250px', borderRadius: '2px' }}></img>
             </div>
-            <a className="hover-underline" style={{  color: 'black'}} href={link}>{name}</a>
+            <a className="hover-underline" style={{  color: 'black'}} target="_blank" href={link}>{name}</a>
             {/* <p>{ingredients}</p> */}
             <br></br>
             {showDPDrowndown ?
                 <div>
-                    <button className="inspo-button" onClick={toggleDPDropdown}>add this dish to one of your dinner parties!</button>
+                    <button className="inspo-button" onClick={toggleDPDropdown}>add this drink to one of your dinner parties!</button>
                 </div>:
                 <div>
                     <form>

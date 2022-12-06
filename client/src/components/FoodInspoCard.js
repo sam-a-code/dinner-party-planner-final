@@ -41,7 +41,7 @@ function FoodInspoCard({name, link, image, ingredients, exploreDPs}) {
             <div className="inspo-image">
                 <img src={image} style={{maxWidth: '250px', borderRadius: '2px'}}></img>
             </div>
-            <a className="hover-underline" style={{  color: 'black'}} href={link}>{name}</a>
+            <a className="hover-underline" style={{  color: 'black'}} target="_blank" href={link}>{name}</a>
             {/* <p>{ingredients}</p> */}
             <br></br>
             {showDPDrowndown ?
