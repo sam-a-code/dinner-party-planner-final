@@ -266,7 +266,7 @@ function DinnerPartyEdit({}) {
                         ></input><br></br>
                         <input type="text"
                         value={addSpotifyPlaylist}
-                        placeholder="spotify_playlist"
+                        placeholder="spotify playlist link"
                         className="edit-dinner-party-form-input"
                         onChange={(e) => setAddSpotifyPlaylist(e.target.value)}
                         ></input><br></br>
@@ -292,25 +292,25 @@ function DinnerPartyEdit({}) {
                             ></input><br></br>
                         <input type="text"
                             value={addContact}
-                            placeholder="contact"
+                            placeholder="contact info"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddContact(e.target.value)}
                             ></input><br></br>
                         <input type="text"
                             value={addPlusOnes}
-                            placeholder="plus_ones"
+                            placeholder="number of plus ones"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddPlusOnes(e.target.value)}
                             ></input><br></br>
                         <input type="text"
                             value={addDietaryRestrictions}
-                            placeholder="dietary_restrictions"
+                            placeholder="dietary restrictions"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddDietaryRestrictions(e.target.value)}
                             ></input><br></br>
                         <input type="text"
                             value={addAssignedDishes}
-                            placeholder="assigned_dishes"
+                            placeholder="assigned dishes"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddAssignedDishes(e.target.value)}
                             ></input><br></br>
@@ -334,13 +334,13 @@ function DinnerPartyEdit({}) {
                     <form onSubmit={handleAddFood}>
                         <input type="text"
                             value={addFoodRecipeName}
-                            placeholder="recipe_name"
+                            placeholder="recipe name"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddFoodRecipeName(e.target.value)}
                             ></input><br></br>
                         <input type="text"
                             value={addFoodRecipeLink}
-                            placeholder="recipe_link"
+                            placeholder="recipe link"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddFoodRecipeLink(e.target.value)}
                             ></input><br></br>
@@ -361,13 +361,13 @@ function DinnerPartyEdit({}) {
                     <form onSubmit={handleAddDrink}>
                         <input type="text"
                             value={addDrinkRecipeName}
-                            placeholder="recipe_name"
+                            placeholder="recipe name"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddDrinkRecipeName(e.target.value)}
                             ></input><br></br>
                         <input type="text"
                             value={addDrinkRecipeLink}
-                            placeholder="recipe_link"
+                            placeholder="recipe link"
                             className="edit-dinner-party-form-input"
                             onChange={(e) => setAddDrinkRecipeLink(e.target.value)}
                             ></input><br></br>
