@@ -3,6 +3,9 @@ FoodMenu.destroy_all
 Guest.destroy_all
 Vibe.destroy_all
 DinnerParty.destroy_all
+VibeInspo.destroy_all
+FoodInspo.destroy_all
+DrinkInspo.destroy_all
 User.destroy_all
 
 
