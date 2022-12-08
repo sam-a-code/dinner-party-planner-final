@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom"
 import DinnerPartyView from "./DinnerPartyView";
 import moment from 'moment';
 
-function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests, setDinnerParties, dinnerParties}) {
+function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests, setDinnerParties, dinnerParties, updateDPMiniCards}) {
     const [showDPEditForm, setShowDPEditForm] = useState(false)
     const [showDPCancel, setShowDPCancel] = useState(false)
     const [dpDate, setDpDate] = useState(date)
@@ -46,7 +46,7 @@ function DinnerPartyMiniCard({id, date, location, time, currentUser, dpGuests, s
         fetch(`/dinner_parties/${id}`, {
             method: "DELETE",
         })
-        window.location.reload(true)
+        updateDPMiniCards(id)
     }
 
     return (
