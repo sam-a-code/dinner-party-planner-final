@@ -134,11 +134,20 @@ code {
 }
 
 .confirm-cancel {
-  background-color: white;
+  background-color: rgb(255, 255, 255, .8);
   margin-left: 33%;
   margin-right: 33%;
   font-size: 14px;
   padding: 3px;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  transition: .5s ease;
+}
+
+.confirm-cancel:hover {
+  background-color: rgb(255, 255, 255, 1);
 }
 
 .view-card {
@@ -558,6 +567,11 @@ code {
 .signup-login-button {
   margin-top: 5px;
   margin-bottom: 5px;
+  background-color: rgb(255, 255, 255, .6);
+  transition: .5s ease;
+}
+.signup-login-button:hover {
+  background-color: rgb(255, 255, 255, .8);
 }
 
 .signup-login-toggle-button {
@@ -676,7 +690,7 @@ code {
   line-height: 19px;
   padding: .2rem .4rem;
   text-decoration: none;
-  transition: all 335ms ease-in-out;
+  transition: all .5s ease-in-out;
   border-bottom-left-radius: 15px 255px;
   border-bottom-right-radius: 225px 15px;
   border-top-left-radius: 255px 15px;
