@@ -20,6 +20,12 @@ function Profile({ currentUser, dinnerParties, setDinnerParties }) {
     // const dinnerPartiesByDate = dinnerParties.sort((a,b) => (a.date > b.date) ? 1 : -1)
     // console.log(dinnerPartiesByDate)
 
+    function updateDPMiniCards(deletedDinnerParty) {
+       const filteredDps = dinnerParties?.filter((dinner_party) => dinner_party.id!== deletedDinnerParty)
+       setDinnerParties(filteredDps)
+    }
+
+
     const dinnerPartyMiniCard = dinnerParties?.map((dinner_party) => {
         return <DinnerPartyMiniCard
             key={dinner_party.id}
@@ -30,6 +36,7 @@ function Profile({ currentUser, dinnerParties, setDinnerParties }) {
             currentUser={currentUser}
             dinnerParties={dinnerParties}
             setDinnerParties={setDinnerParties}
+            updateDPMiniCards={updateDPMiniCards}
         />
     })
 
