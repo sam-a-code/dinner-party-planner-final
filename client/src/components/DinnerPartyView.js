@@ -102,6 +102,7 @@ function DinnerPartyView({currentUser}) {
         emailName: emailName,
         emailAddress: emailAddress,
         prettyDate: prettyDate,
+        partyTime: partyTime,
     }
 
     const inviteParams = {
