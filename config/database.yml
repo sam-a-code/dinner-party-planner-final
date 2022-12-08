@@ -82,7 +82,8 @@ test:
 #
 production:
   <<: *default
-      url: <%= ENV['DATABASE_URL'] %>
-  database: dinner_party_planner_final_production
-  username: dinner_party_planner_final
-  password: <%= ENV["DINNER_PARTY_PLANNER_FINAL_DATABASE_PASSWORD"] %>
+  # database: dinner_party_planner_final_production
+  # username: dinner_party_planner_final
+  # password: <%= ENV["DINNER_PARTY_PLANNER_FINAL_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+
