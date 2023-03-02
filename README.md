@@ -34,7 +34,7 @@ When you make changes the page will reload automatically. You may also see lint 
 If you'd like to connect (or hire me!), please reach out on [LinkedIn](https://www.linkedin.com/in/samanthajavery/).
 
 
-## Environment Setup
+## 📑 Environment Setup
 
 ### Install the Latest Ruby Version
 
