@@ -1,10 +1,10 @@
-# 🍲 WeAte.
+# ✨ WeAte.
 
 I built this project as the capstone project for my software engineering bootcamp. I LOVE hosting dinner parties, so I wanted to create something that could help people throw their own. This resources is intended to help people track guests, recipes, and vibes they had at their dinner parties. One of my favorite parts of this project is that it allows you to find recipes you used at certain parties – that way you can easily reference past dishes or drinks you made.
 
 You can also email yourself a grocery list so that you don't forget what each recipe requires when you're shopping! I'm most proud of the visual aspect of this project – it's definitely where I shine.
 
-## 🍽️ Requirements for WeAte.
+## 🍜 Requirements for WeAte.
 
 - Ruby 2.7.4
 - NodeJS (v16), and npm
